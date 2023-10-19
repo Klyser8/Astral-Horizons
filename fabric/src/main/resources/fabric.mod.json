@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "astralhorizons",
+  "version": "${version}",
+
+  "name": "AstralHorizons",
+  "description": "",
+  "authors": [],
+  "contact": {},
+
+  "license": "GNU GPL 3.0",
+  "icon": "icon.png",
+
+  "environment": "*",
+  "entrypoints": {},
+  "mixins": [
+    "astralhorizons.mixins.json",
+    "astralhorizons-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.23",
+    "minecraft": ">=1.20.2"
+  }
+}
