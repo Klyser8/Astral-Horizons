@@ -12,7 +12,11 @@
   "icon": "icon.png",
 
   "environment": "*",
-  "entrypoints": {},
+  "entrypoints": {
+    "main": [
+      "com.github.klyser.astralhorizons.fabric.AstralHorizonsFabric"
+    ]
+  },
   "mixins": [
     "astralhorizons.mixins.json",
     "astralhorizons-common.mixins.json"
