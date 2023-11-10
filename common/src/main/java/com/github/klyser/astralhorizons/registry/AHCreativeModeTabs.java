@@ -30,6 +30,11 @@ public class AHCreativeModeTabs {
                     .icon(() -> AHItems.ANOMALOUS_DIRT.get().getDefaultInstance())
                     .displayItems((features, entries) -> {
                         entries.accept(AHItems.ANOMALOUS_DIRT.get());
+                        entries.accept(AHItems.ANOMALOUS_GRASS_BLOCK.get());
+                        entries.accept(AHItems.ANOMALOUS_STONE.get());
+                        entries.accept(AHItems.ANOMALOUS_SAND.get());
+                        entries.accept(AHItems.ANOMALOUS_LOG.get());
+                        entries.accept(AHItems.ANOMALOUS_LEAVES.get());
                     }).build()
     );
 
