@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "astralhorizons:block/anomalous_sand"
+      },
+      {
+        "model": "astralhorizons:block/anomalous_sand",
+        "y": 90
+      },
+      {
+        "model": "astralhorizons:block/anomalous_sand",
+        "y": 180
+      },
+      {
+        "model": "astralhorizons:block/anomalous_sand",
+        "y": 270
+      }
+    ]
+  }
+}

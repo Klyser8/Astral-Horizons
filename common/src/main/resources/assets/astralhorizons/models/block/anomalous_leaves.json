@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "astralhorizons:block/anomalous_leaves"
+  }
+}

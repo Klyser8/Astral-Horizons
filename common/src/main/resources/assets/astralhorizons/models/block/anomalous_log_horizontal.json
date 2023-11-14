@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "astralhorizons:block/anomalous_log_top",
+    "side": "astralhorizons:block/anomalous_log"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "astralhorizons:block/anomalous_grass_block"
+      },
+      {
+        "model": "astralhorizons:block/anomalous_grass_block",
+        "y": 180
+      }
+    ]
+  }
+}

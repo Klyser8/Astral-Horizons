@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "astralhorizons:block/anomalous_dirt"
+      },
+      {
+        "model": "astralhorizons:block/anomalous_dirt",
+        "y": 180
+      }
+    ]
+  }
+}
