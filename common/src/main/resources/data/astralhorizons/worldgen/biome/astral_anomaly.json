@@ -1,0 +1,39 @@
+{
+  "has_precipitation": true,
+  "temperature": 0.5,
+  "downfall": 0.5,
+  "effects": {
+    "fog_color": 11184810,
+    "sky_color": 11184810,
+    "water_color": 10494192,
+    "water_fog_color": 10494192,
+    "particle": {
+      "probability": 0.01,
+      "options": {
+        "type": "minecraft:dust",
+        "color": [1.0, 0.41, 0.71],
+        "scale": 1.0
+      }
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "minecraft:enderman",
+        "weight": 100,
+        "minCount": 1,
+        "maxCount": 4
+      }
+    ]
+  },
+  "spawn_costs": {
+    "minecraft:enderman": {
+      "energy_budget": 1000,
+      "charge": 1.0
+    }
+  },
+  "features": [],
+  "carvers": {
+    "air": []
+  }
+}
