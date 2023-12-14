@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "astralhorizons:block/anomalous_stone_bricks"
+    },
+    "facing=north": {
+      "model": "astralhorizons:block/anomalous_stone_bricks",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "astralhorizons:block/anomalous_stone_bricks",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "astralhorizons:block/anomalous_stone_bricks",
+      "y": 180
+    }
+  }
+}

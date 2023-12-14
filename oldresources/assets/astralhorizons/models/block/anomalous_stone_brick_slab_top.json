@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "astralhorizons:block/anomalous_stone_bricks",
+    "side": "astralhorizons:block/anomalous_stone_bricks",
+    "top": "astralhorizons:block/anomalous_stone_bricks"
+  }
+}

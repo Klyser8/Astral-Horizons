@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "astralhorizons:block/anomalous_cobblestone"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "astralhorizons:block/anomalous_stone_bricks"
+  }
+}

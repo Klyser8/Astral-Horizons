@@ -45,6 +45,10 @@ allprojects {
             name = "SmartBrainLib (SBL) Maven Repo"
             url = "https://dl.cloudsmith.io/public/tslat/sbl/maven/"
         }
+        maven {
+            name = 'Terrablender'
+            url = ''
+        }
     }
 
     tasks.withType(JavaCompile) {

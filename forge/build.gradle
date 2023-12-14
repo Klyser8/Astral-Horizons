@@ -14,10 +14,20 @@ configurations {
     developmentForge.extendsFrom common
 }
 
+loom {
+    accessWidenerPath = project(":common").loom.accessWidenerPath
+
+    forge {
+        convertAccessWideners = true
+        extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
+    }
+}
+
 dependencies {
     forge "net.minecraftforge:forge:${project.forge_version}"
     modImplementation "software.bernie.geckolib:geckolib-forge-${project.minecraft_version}:${project.geckolib_version}"
-    modImplementation "net.tslat.smartbrainlib:SmartBrainLib-forge-1.20.1:${project.sbl_version}"
+    modImplementation "net.tslat.smartbrainlib:SmartBrainLib-forge-${project.minecraft_version}:${project.sbl_version}"
+    modImplementation 'com.github.glitchfiend:TerraBlender-forge:' + minecraft_version + '-' + terrablender_version
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
@@ -71,5 +81,15 @@ publishing {
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
         // Add repositories to publish to here.
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs += [
+                    'src/main/generated',
+            ]
+        }
     }
 }

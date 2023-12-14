@@ -1,0 +1,54 @@
+{
+  "variants": {
+    "type=bottom,facing=east": {
+      "model": "astralhorizons:block/anomalous_stone_brick_slab",
+      "y": 0
+    },
+    "type=bottom,facing=north": {
+      "model": "astralhorizons:block/anomalous_stone_brick_slab",
+      "y": 270
+    },
+    "type=bottom,facing=south": {
+      "model": "astralhorizons:block/anomalous_stone_brick_slab",
+      "y": 90
+    },
+    "type=bottom,facing=west": {
+      "model": "astralhorizons:block/anomalous_stone_brick_slab",
+      "y": 180
+    },
+
+    "type=top,facing=east": {
+      "model": "astralhorizons:block/anomalous_stone_brick_slab_top",
+      "y": 0
+    },
+    "type=top,facing=north": {
+      "model": "astralhorizons:block/anomalous_stone_brick_slab_top",
+      "y": 270
+    },
+    "type=top,facing=south": {
+      "model": "astralhorizons:block/anomalous_stone_brick_slab_top",
+      "y": 90
+    },
+    "type=top,facing=west": {
+      "model": "astralhorizons:block/anomalous_stone_brick_slab_top",
+      "y": 180
+    },
+
+    "type=double,facing=east": {
+      "model": "astralhorizons:block/anomalous_stone_bricks",
+      "y": 0
+    },
+    "type=double,facing=north": {
+      "model": "astralhorizons:block/anomalous_stone_bricks",
+      "y": 270
+    },
+    "type=double,facing=south": {
+      "model": "astralhorizons:block/anomalous_stone_bricks",
+      "y": 90
+    },
+    "type=double,facing=west": {
+      "model": "astralhorizons:block/anomalous_stone_bricks",
+      "y": 180
+    }
+  }
+}

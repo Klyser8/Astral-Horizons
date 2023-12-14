@@ -15,6 +15,12 @@
   "entrypoints": {
     "main": [
       "com.github.klyser.astralhorizons.fabric.AstralHorizonsFabric"
+    ],
+    "fabric-datagen": [
+      "com.github.klyser.astralhorizons.fabric.datagen.AHDataGenerator"
+    ],
+    "terrablender": [
+      "com.github.klyser.astralhorizons.fabric.AstralHorizonsFabric"
     ]
   },
   "mixins": [

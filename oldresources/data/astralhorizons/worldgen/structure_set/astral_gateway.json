@@ -1,0 +1,22 @@
+{
+  "placement":
+  {
+    "type": "minecraft:random_spread",
+    "salt": 24936846,
+    "exclusion_zone": [
+      {
+        "chunk_count": 8,
+        "other_set": "minecraft:villages"
+      }
+    ],
+    "spread_type": "triangular",
+    "spacing": 28,
+    "separation": 20
+    },
+  "structures": [
+    {
+      "structure": "astralhorizons:astral_gateway",
+      "weight": 1
+    }
+  ]
+}

@@ -4,6 +4,8 @@ import com.github.klyser.astralhorizons.registry.AHBlocks;
 import com.github.klyser.astralhorizons.registry.AHCreativeModeTabs;
 import com.github.klyser.astralhorizons.registry.AHItems;
 import com.github.klyser.astralhorizons.util.AdvancementUtil;
+import com.github.klyser.astralhorizons.world.region.AstralAnomalyRegion;
+import com.github.klyser.astralhorizons.world.surfacerules.AstralAnomalySurfaceRuleData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -11,6 +13,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.dimension.end.EndDragonFight;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import terrablender.api.RegionType;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 
 public class AstralHorizons
 {
@@ -38,5 +43,13 @@ public class AstralHorizons
 		if (dragonFightData.dragonKilled()) {
 			AdvancementUtil.completeAdvancement((ServerPlayer) player, new ResourceLocation(AstralHorizons.MOD_ID, "dragon_dead"), "tick");
 		}
+	}
+
+	public static Runnable initTerrablender() {
+		return () -> {
+			Regions.register(new AstralAnomalyRegion(new ResourceLocation(AstralHorizons.MOD_ID, "astral_anomaly"), RegionType.OVERWORLD, 2));
+
+			SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, AstralAnomalySurfaceRuleData.makeRules());
+		};
 	}
 }

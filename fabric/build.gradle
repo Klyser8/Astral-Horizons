@@ -21,6 +21,7 @@ dependencies {
 
     modImplementation "software.bernie.geckolib:geckolib-fabric-${project.minecraft_version}:${project.geckolib_version}"
     modImplementation "net.tslat.smartbrainlib:SmartBrainLib-fabric-${project.minecraft_version}:${project.sbl_version}"
+    modImplementation 'com.github.glitchfiend:TerraBlender-fabric:' + minecraft_version + '-' + terrablender_version
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
@@ -72,5 +73,31 @@ publishing {
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
         // Add repositories to publish to here.
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs += [
+                    'src/main/generated',
+            ]
+        }
+    }
+}
+
+loom {
+    accessWidenerPath = project(":common").loom.accessWidenerPath
+    runs {
+        // This adds a new gradle task that runs the datagen API: "gradlew runDatagen"
+        datagen {
+            inherit server
+            name "Data Generation"
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${file("../common/src/main/generated")}"
+            vmArg "-Dfabric-api.datagen.modid=${project.modid}"
+
+            runDir "build/datagen"
+        }
     }
 }
