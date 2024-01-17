@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "astralhorizons:block/anomalous_short_grass"
-  }
-}

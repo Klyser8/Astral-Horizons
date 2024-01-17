@@ -2,6 +2,7 @@ package com.github.klyser.astralhorizons.fabric.datagen;
 
 import com.github.klyser.astralhorizons.AstralHorizons;
 import com.github.klyser.astralhorizons.fabric.datagen.builder.AHBlockFamilyBuilder;
+import com.github.klyser.astralhorizons.fabric.datagen.builder.AHWoodBuilder;
 import com.github.klyser.astralhorizons.registry.AHBlocks;
 import com.github.klyser.astralhorizons.registry.AHItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -46,7 +47,7 @@ public class AHModelGenerator extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerators itemModelGenerator) {
         generateFlatItemFromCrossBlock(itemModelGenerator, AHItems.SICKENED_SHRUB.get(), AHBlocks.SICKENED_SHRUB.get());
         generateFlatItemFromCrossBlock(itemModelGenerator, AHItems.ANOMALOUS_SHORT_GRASS.get(), AHBlocks.ANOMALOUS_SHORT_GRASS.get()); //FIXME why won't this generate?
-        itemModelGenerator.generateFlatItem(AHItems.ANOMAGRASS_BLOCK.get(), ModelTemplates.FLAT_ITEM);
+//        itemModelGenerator.(AHItems.ANOMAGRASS_BLOCK.get(), ModelTemplates.FLAT_ITEM); //TODO figure out how to create blockitem item models.
     }
     private void generateFlatItemFromCrossBlock(ItemModelGenerators itemModelGenerator, Item item, Block block) {
         ResourceLocation blockTexture = TextureMapping.getBlockTexture(block);
@@ -261,12 +262,20 @@ public class AHModelGenerator extends FabricModelProvider {
     }
 
     private void createWoods(BlockModelGenerators blockModelGenerators) {
-        createLog(blockModelGenerators, AHBlocks.SCURANE_LOG.get(), AHBlocks.SCURANE_WOOD.get());
-    }
-
-    private void createLog(BlockModelGenerators blockModelGenerators, Block logBlock, Block woodBlock) {
-        BlockModelGenerators.WoodProvider woodProvider = blockModelGenerators.woodProvider(logBlock);
-        woodProvider.logWithHorizontal(logBlock).wood(woodBlock);
+        new AHWoodBuilder(blockModelGenerators, AHBlocks.SCURANE_LOG.get(), AHBlocks.SCURANE_WOOD.get(),
+                AHBlocks.STRIPPED_SCURANE_LOG.get(), AHBlocks.STRIPPED_SCURANE_WOOD.get(),
+                AHBlocks.SCURANE_PLANKS.get())
+                .withDoor(AHBlocks.SCURANE_DOOR.get())
+                .withTrapdoor(AHBlocks.SCURANE_TRAPDOOR.get())
+//                .withSign(AHBlocks.SCURANE_SIGN.get())
+                .withFenceGate(AHBlocks.SCURANE_FENCE_GATE.get())
+//                .withHangingSign(AHBlocks.SCURANE_PLANKS.get(), AHBlocks.SCURANE_HANGING_SIGN.get(), AHBlocks.SCURANE_WALL_HANGING_SIGN.get())
+                .withLeaves(AHBlocks.SCURANE_LEAVES.get())
+                .withSlab(AHBlocks.SCURANE_SLAB.get())
+                .withFence(AHBlocks.SCURANE_FENCE.get())
+                .withStairs(AHBlocks.SCURANE_STAIRS.get())
+                .withButton(AHBlocks.SCURANE_BUTTON.get())
+                .withPressurePlate(AHBlocks.SCURANE_PRESSURE_PLATE.get());
     }
 
     private void createHorizontallyRotatedTrivialBlock(BlockModelGenerators blockModelGenerators, Block block, TexturedModel.Provider provider) {

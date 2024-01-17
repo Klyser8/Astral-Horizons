@@ -82,7 +82,21 @@ public class AHCreativeModeTabs {
                         entries.accept(AHItems.ANOMALICE.get());
                         entries.accept(AHItems.ANOMASNOW_BLOCK.get());
                         entries.accept(AHItems.SCURANE_LOG.get());
+                        entries.accept(AHItems.SCURANE_WOOD.get());
+                        entries.accept(AHItems.STRIPPED_SCURANE_LOG.get());
+                        entries.accept(AHItems.STRIPPED_SCURANE_WOOD.get());
                         entries.accept(AHItems.SCURANE_LEAVES.get());
+                        entries.accept(AHItems.SCURANE_PLANKS.get());
+                        entries.accept(AHItems.SCURANE_SLAB.get());
+                        entries.accept(AHItems.SCURANE_STAIRS.get());
+                        entries.accept(AHItems.SCURANE_FENCE.get());
+                        entries.accept(AHItems.SCURANE_FENCE_GATE.get());
+                        entries.accept(AHItems.SCURANE_PRESSURE_PLATE.get());
+                        entries.accept(AHItems.SCURANE_BUTTON.get());
+                        entries.accept(AHItems.SCURANE_TRAPDOOR.get());
+                        entries.accept(AHItems.SCURANE_DOOR.get());
+//                        entries.accept(AHItems.SCURANE_SIGN.get());
+//                        entries.accept(AHItems.SCURANE_HANGING_SIGN.get());
                         entries.accept(AHItems.ANOMALOUS_SHORT_GRASS.get());
                         entries.accept(AHItems.SICKENED_SHRUB.get());
                     }).build()

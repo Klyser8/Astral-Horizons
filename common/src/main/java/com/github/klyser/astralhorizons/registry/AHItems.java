@@ -125,10 +125,38 @@ public class AHItems {
             "anomasnow_block", () -> new BlockItem(AHBlocks.ANOMASNOW_BLOCK.get(), new Item.Properties()));
     public static final Supplier<Item> SCURANE_LOG = CommonPlatformHelper.registerItem(
             "scurane_log", () -> new BlockItem(AHBlocks.SCURANE_LOG.get(), new Item.Properties()));
+    public static final Supplier<Item> SCURANE_WOOD = CommonPlatformHelper.registerItem(
+            "scurane_wood", () -> new BlockItem(AHBlocks.SCURANE_WOOD.get(), new Item.Properties()));
+    public static final Supplier<Item> STRIPPED_SCURANE_LOG = CommonPlatformHelper.registerItem(
+            "stripped_scurane_log", () -> new BlockItem(AHBlocks.STRIPPED_SCURANE_LOG.get(), new Item.Properties()));
+    public static final Supplier<Item> STRIPPED_SCURANE_WOOD = CommonPlatformHelper.registerItem(
+            "stripped_scurane_wood", () -> new BlockItem(AHBlocks.STRIPPED_SCURANE_WOOD.get(), new Item.Properties()));
     public static final Supplier<Item> SCURANE_LEAVES = CommonPlatformHelper.registerItem(
             "scurane_leaves", () -> new BlockItem(AHBlocks.SCURANE_LEAVES.get(), new Item.Properties()));
+    public static final Supplier<Item> SCURANE_PLANKS = CommonPlatformHelper.registerItem(
+            "scurane_planks", () -> new BlockItem(AHBlocks.SCURANE_PLANKS.get(), new Item.Properties()));
+    public static final Supplier<Item> SCURANE_SLAB = CommonPlatformHelper.registerItem(
+            "scurane_slab", () -> new BlockItem(AHBlocks.SCURANE_SLAB.get(), new Item.Properties()));
+    public static final Supplier<Item> SCURANE_STAIRS = CommonPlatformHelper.registerItem(
+            "scurane_stairs", () -> new BlockItem(AHBlocks.SCURANE_STAIRS.get(), new Item.Properties()));
+    public static final Supplier<Item> SCURANE_FENCE = CommonPlatformHelper.registerItem(
+            "scurane_fence", () -> new BlockItem(AHBlocks.SCURANE_FENCE.get(), new Item.Properties()));
+    public static final Supplier<Item> SCURANE_FENCE_GATE = CommonPlatformHelper.registerItem(
+            "scurane_fence_gate", () -> new BlockItem(AHBlocks.SCURANE_FENCE_GATE.get(), new Item.Properties()));
+    public static final Supplier<Item> SCURANE_DOOR = CommonPlatformHelper.registerItem(
+            "scurane_door", () -> new BlockItem(AHBlocks.SCURANE_DOOR.get(), new Item.Properties()));
+    public static final Supplier<Item> SCURANE_TRAPDOOR = CommonPlatformHelper.registerItem(
+            "scurane_trapdoor", () -> new BlockItem(AHBlocks.SCURANE_TRAPDOOR.get(), new Item.Properties()));
+    public static final Supplier<Item> SCURANE_PRESSURE_PLATE = CommonPlatformHelper.registerItem(
+            "scurane_pressure_plate", () -> new BlockItem(AHBlocks.SCURANE_PRESSURE_PLATE.get(), new Item.Properties()));
+    public static final Supplier<Item> SCURANE_BUTTON = CommonPlatformHelper.registerItem(
+            "scurane_button", () -> new BlockItem(AHBlocks.SCURANE_BUTTON.get(), new Item.Properties()));
+//    public static final Supplier<Item> SCURANE_SIGN = CommonPlatformHelper.registerItem(
+//            "scurane_sign", () -> new BlockItem(AHBlocks.SCURANE_SIGN.get(), new Item.Properties()));
+//    public static final Supplier<Item> SCURANE_HANGING_SIGN = CommonPlatformHelper.registerItem(
+//            "scurane_hanging_sign", () -> new BlockItem(AHBlocks.SCURANE_HANGING_SIGN.get(), new Item.Properties()));
     public static final Supplier<Item> ANOMALOUS_SHORT_GRASS = CommonPlatformHelper.registerItem(
-            "anomalous_planks", () -> new BlockItem(AHBlocks.ANOMALOUS_SHORT_GRASS.get(), new Item.Properties()));
+            "anomalous_short_grass", () -> new BlockItem(AHBlocks.ANOMALOUS_SHORT_GRASS.get(), new Item.Properties()));
     public static final Supplier<Item> SICKENED_SHRUB = CommonPlatformHelper.registerItem(
             "sickened_shrub", () -> new BlockItem(AHBlocks.SICKENED_SHRUB.get(), new Item.Properties()));
 

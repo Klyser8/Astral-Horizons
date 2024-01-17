@@ -37,11 +37,11 @@ public class AHBlocks {
                     .ofFullCopy(Blocks.STONE_STAIRS)
                     .strength(4.0f, 6.0f)));
     public static final Supplier<Block> ANOMASTONE_PRESSURE_PLATE = registerBlock("anomastone_pressure_plate", () ->
-            new PressurePlateBlock(AHBlockSetTypes.ANOMALOUS_STONE, BlockBehaviour.Properties
+            new PressurePlateBlock(AHBlockSetType.ANOMASTONE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_PRESSURE_PLATE)
                     .strength(4.0f, 6.0f)));
     public static final Supplier<Block> ANOMASTONE_BUTTON = registerBlock("anomastone_button", () ->
-            new ButtonBlock(AHBlockSetTypes.ANOMALOUS_STONE, 20, BlockBehaviour.Properties
+            new ButtonBlock(AHBlockSetType.ANOMASTONE, 20, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_BUTTON)
                     .strength(4.0f, 6.0f)));
     public static final Supplier<Block> COBBLED_ANOMASTONE = registerBlock("cobbled_anomastone", () ->
@@ -233,11 +233,71 @@ public class AHBlocks {
             new RotatedPillarBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_WOOD)
                     .strength(3.0f)));
+    public static final Supplier<Block> STRIPPED_SCURANE_LOG = registerBlock("stripped_scurane_log", () ->
+            new RotatedPillarBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.STRIPPED_CHERRY_LOG)
+                    .strength(3.0f)));
+    public static final Supplier<Block> STRIPPED_SCURANE_WOOD = registerBlock("stripped_scurane_wood", () ->
+            new RotatedPillarBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.STRIPPED_CHERRY_WOOD)
+                    .strength(3.0f)));
     public static final Supplier<Block> SCURANE_LEAVES = registerBlock("scurane_leaves", () ->
             new LeavesBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_LEAVES)
                     .strength(0.3f)
                     .randomTicks()));
+    public static final Supplier<Block> SCURANE_PLANKS = registerBlock("scurane_planks", () ->
+            new Block(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CHERRY_PLANKS)
+                    .strength(3.0f)));
+    public static final Supplier<Block> SCURANE_SLAB = registerBlock("scurane_slab", () ->
+            new SlabBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CHERRY_SLAB)
+                    .strength(3.0f)));
+    public static final Supplier<Block> SCURANE_STAIRS = registerBlock("scurane_stairs", () ->
+            new StairBlock(SCURANE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CHERRY_STAIRS)
+                    .strength(3.0f)));
+    public static final Supplier<Block> SCURANE_FENCE = registerBlock("scurane_fence", () ->
+            new FenceBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CHERRY_FENCE)
+                    .strength(3.0f)));
+    public static final Supplier<Block> SCURANE_FENCE_GATE = registerBlock("scurane_fence_gate", () ->
+            new FenceGateBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CHERRY_FENCE_GATE)
+                    .strength(3.0f)));
+    public static final Supplier<Block> SCURANE_BUTTON = registerBlock("scurane_button", () ->
+            new ButtonBlock(AHBlockSetType.SCURANE, 15, BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CHERRY_BUTTON)
+                    .strength(0.75f)));
+    public static final Supplier<Block> SCURANE_PRESSURE_PLATE = registerBlock("scurane_pressure_plate", () ->
+            new PressurePlateBlock(AHBlockSetType.SCURANE, BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CHERRY_PRESSURE_PLATE)
+                    .strength(0.75f)));
+    public static final Supplier<Block> SCURANE_TRAPDOOR = registerBlock("scurane_trapdoor", () ->
+            new TrapDoorBlock(AHBlockSetType.SCURANE, BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CHERRY_TRAPDOOR)
+                    .strength(3.0f)));
+    public static final Supplier<Block> SCURANE_DOOR = registerBlock("scurane_door", () ->
+            new DoorBlock(AHBlockSetType.SCURANE, BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CHERRY_DOOR)
+                    .strength(3.0f)));
+    public static final Supplier<Block> SCURANE_SIGN = registerBlock("scurane_sign", () ->
+            new WallSignBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CHERRY_SIGN)
+                    .strength(3.0f)));
+    public static final Supplier<Block> SCURANE_WALL_SIGN = registerBlock("scurane_wall_sign", () ->
+            new WallSignBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CHERRY_WALL_SIGN)
+                    .strength(3.0f)));
+    public static final Supplier<Block> SCURANE_HANGING_SIGN = registerBlock("scurane_hanging_sign", () ->
+            new CeilingHangingSignBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CHERRY_HANGING_SIGN)
+                    .strength(3.0f)));
+    public static final Supplier<Block> SCURANE_WALL_HANGING_SIGN = registerBlock("scurane_wall_hanging_sign", () ->
+            new WallHangingSignBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CHERRY_WALL_HANGING_SIGN)
+                    .strength(3.0f)));
     public static final Supplier<Block> ANOMALOUS_SHORT_GRASS = registerBlock("anomalous_short_grass", () ->
             new AnomalousBushBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.SHORT_GRASS)

@@ -8,9 +8,11 @@ import net.minecraft.world.level.block.Block;
  */
 public class AHBlockFamilyBuilder {
 
-    private BlockModelGenerators.BlockFamilyProvider familyProvider;
+    protected final BlockModelGenerators blockModelGenerator;
+    protected BlockModelGenerators.BlockFamilyProvider familyProvider;
 
     public AHBlockFamilyBuilder(BlockModelGenerators blockModelGenerator, Block block) {
+        this.blockModelGenerator = blockModelGenerator;
         this.familyProvider = blockModelGenerator.family(block);
     }
 
@@ -37,28 +39,6 @@ public class AHBlockFamilyBuilder {
     }
 
     /**
-     * Adds a door to the block family.
-     *
-     * @param fenceBlock the fence block
-     * @return this builder
-     */
-    public AHBlockFamilyBuilder withFence(Block fenceBlock) {
-        familyProvider = familyProvider.fence(fenceBlock);
-        return this;
-    }
-
-    /**
-     * Adds a fence gate to the block family.
-     *
-     * @param fenceGateBlock the fence gate block
-     * @return this builder
-     */
-    public AHBlockFamilyBuilder withFenceGate(Block fenceGateBlock) {
-        familyProvider = familyProvider.fenceGate(fenceGateBlock);
-        return this;
-    }
-
-    /**
      * Adds a pressure plate to the block family.
      *
      * @param pressurePlateBlock the pressure plate block
@@ -66,17 +46,6 @@ public class AHBlockFamilyBuilder {
      */
     public AHBlockFamilyBuilder withPressurePlate(Block pressurePlateBlock) {
         familyProvider = familyProvider.pressurePlate(pressurePlateBlock);
-        return this;
-    }
-
-    /**
-     * Adds a sign to the block family.
-     *
-     * @param signBlock the sign block
-     * @return this builder
-     */
-    public AHBlockFamilyBuilder withSign(Block signBlock) {
-        familyProvider = familyProvider.sign(signBlock);
         return this;
     }
 
@@ -99,6 +68,17 @@ public class AHBlockFamilyBuilder {
      */
     public AHBlockFamilyBuilder withStairs(Block stairsBlock) {
         familyProvider = familyProvider.stairs(stairsBlock);
+        return this;
+    }
+
+    /**
+     * Adds a door to the block family.
+     *
+     * @param fenceBlock the fence block
+     * @return this builder
+     */
+    public AHBlockFamilyBuilder withFence(Block fenceBlock) {
+        familyProvider = familyProvider.fence(fenceBlock);
         return this;
     }
 }
