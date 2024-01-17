@@ -9,7 +9,6 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.GrassBlock;
 import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.SpreadingSnowyDirtBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -48,14 +47,14 @@ public class AnomalousGrassBlock extends SpreadingSnowyDirtBlock {
     @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (!AnomalousGrassBlock.canBeGrass(state, level, pos)) {
-            level.setBlockAndUpdate(pos, AHBlocks.ANOMALOUS_DIRT.get().defaultBlockState());
+            level.setBlockAndUpdate(pos, AHBlocks.ANOMADIRT.get().defaultBlockState());
             return;
         }
         if (level.getMaxLocalRawBrightness(pos.above()) >= 9) {
             BlockState blockState = this.defaultBlockState();
             for (int i = 0; i < 4; ++i) {
                 BlockPos blockPos = pos.offset(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-                if (!level.getBlockState(blockPos).is(AHBlocks.ANOMALOUS_DIRT.get()) || !AnomalousGrassBlock.canPropagate(blockState, level, blockPos)) continue;
+                if (!level.getBlockState(blockPos).is(AHBlocks.ANOMADIRT.get()) || !AnomalousGrassBlock.canPropagate(blockState, level, blockPos)) continue;
                 level.setBlockAndUpdate(blockPos, blockState.setValue(SNOWY, level.getBlockState(blockPos.above()).is(Blocks.SNOW)));
             }
         }

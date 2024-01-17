@@ -1,9 +1,12 @@
 package com.github.klyser.astralhorizons.platform;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 import java.util.function.Supplier;
 
@@ -21,6 +24,11 @@ public class CommonPlatformHelper {
 
     @ExpectPlatform
     public static <T extends Block> Supplier<T> registerBlock(String name, Supplier<T> block) {
+        throw new AssertionError();
+    }
+
+    @ExpectPlatform
+    public static <T extends SoundEvent> Supplier<T> registerSoundEvent(String name, Supplier<T> soundEvent) {
         throw new AssertionError();
     }
 

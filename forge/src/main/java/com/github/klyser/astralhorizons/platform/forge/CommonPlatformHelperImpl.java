@@ -2,9 +2,11 @@ package com.github.klyser.astralhorizons.platform.forge;
 
 import com.github.klyser.astralhorizons.AstralHorizons;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -20,6 +22,10 @@ public class CommonPlatformHelperImpl {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, AstralHorizons.MOD_ID);
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, AstralHorizons.MOD_ID);
+    public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
+            DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, AstralHorizons.MOD_ID);
+    public static final DeferredRegister<net.minecraft.world.level.levelgen.feature.Feature<?>> FEATURES =
+            DeferredRegister.create(ForgeRegistries.FEATURES, AstralHorizons.MOD_ID);
 
     public static <T extends Item> Supplier<T> registerItem(String name, Supplier<T> item) {
         return ITEMS.register(name, item);
@@ -31,6 +37,10 @@ public class CommonPlatformHelperImpl {
 
     public static <T extends Block> Supplier<T> registerBlock(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);
+    }
+
+    public static <T extends SoundEvent> Supplier<T> registerSoundEvent(String name, Supplier<T> soundEvent) {
+        return SOUND_EVENTS.register(name, soundEvent);
     }
 
 }

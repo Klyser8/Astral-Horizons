@@ -1,6 +1,5 @@
 package com.github.klyser.astralhorizons.registry;
 
-import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.Level;
@@ -13,24 +12,26 @@ import net.minecraft.world.level.block.state.BlockState;
 public class AHBlockColors {
 
     public static int getBlockColor(BlockState state, BlockAndTintGetter blockAndTintGetter, BlockPos pos, int tintIndex) {
-        if (pos == null || !(blockAndTintGetter instanceof Level level))
+        if (pos == null || !(blockAndTintGetter instanceof Level level)) {
             return 0xFFFFFF;
+        }
+//        if (level.getBiome(pos).is())
         return 0x00FF00;
     }
 
     public static Block[] getAffectedBlocks() {
         return new Block[]{
-                AHBlocks.ANOMALOUS_DIRT.get(),
-                AHBlocks.ANOMALOUS_GRASS_BLOCK.get(),
-                AHBlocks.ANOMALOUS_STONE.get(),
-                AHBlocks.ANOMALOUS_STONE_SLAB.get(),
-                AHBlocks.ANOMALOUS_STONE_STAIRS.get(),
-                AHBlocks.ANOMALOUS_STONE_PRESSURE_PLATE.get(),
-                AHBlocks.ANOMALOUS_STONE_BUTTON.get(),
-                AHBlocks.ANOMALOUS_COBBLESTONE.get(),
-                AHBlocks.ANOMALOUS_COBBLESTONE_SLAB.get(),
-                AHBlocks.ANOMALOUS_COBBLESTONE_STAIRS.get(),
-                AHBlocks.ANOMALOUS_COBBLESTONE_WALL.get()
+                AHBlocks.ANOMADIRT.get(),
+                AHBlocks.ANOMAGRASS_BLOCK.get(),
+                AHBlocks.ANOMASTONE.get(),
+                AHBlocks.ANOMASTONE_SLAB.get(),
+                AHBlocks.ANOMASTONE_STAIRS.get(),
+                AHBlocks.ANOMASTONE_PRESSURE_PLATE.get(),
+                AHBlocks.ANOMASTONE_BUTTON.get(),
+                AHBlocks.COBBLED_ANOMASTONE.get(),
+                AHBlocks.COBBLED_ANOMASTONE_SLAB.get(),
+                AHBlocks.COBBLED_ANOMASTONE_STAIRS.get(),
+                AHBlocks.COBBLED_ANOMASTONE_WALL.get()
         };
     }
 

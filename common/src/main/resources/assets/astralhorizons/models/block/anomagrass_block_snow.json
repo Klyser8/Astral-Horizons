@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "astralhorizons:block/anomagrass_block_top",
+    "bottom": "astralhorizons:block/anomadirt",
+    "side": "astralhorizons:block/anomagrass_block_snow",
+    "particle": "astralhorizons:block/anomadirt"
+  }
+}

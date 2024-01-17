@@ -25,6 +25,7 @@ loom {
 
 dependencies {
     forge "net.minecraftforge:forge:${project.forge_version}"
+    implementation(group: 'com.eliotlash.mclib', name: 'mclib', version: "20")
     modImplementation "software.bernie.geckolib:geckolib-forge-${project.minecraft_version}:${project.geckolib_version}"
     modImplementation "net.tslat.smartbrainlib:SmartBrainLib-forge-${project.minecraft_version}:${project.sbl_version}"
     modImplementation 'com.github.glitchfiend:TerraBlender-forge:' + minecraft_version + '-' + terrablender_version

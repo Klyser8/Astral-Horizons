@@ -11,8 +11,9 @@ public class AHDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator generator) {
         FabricDataGenerator.Pack pack = generator.createPack();
         pack.addProvider(AHBlockTagGenerator::new);
-        pack.addProvider(AHBlockGenerator::new);
-//        pack.addProvider(AHBiomeTagGenerator::new);
+        pack.addProvider(AHModelGenerator::new);
+        pack.addProvider(AHSoundEventGenerator::new);
+        pack.addProvider(AHBiomeTagGenerator::new);
     }
 
 

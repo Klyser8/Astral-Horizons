@@ -1,11 +1,9 @@
 package com.github.klyser.astralhorizons;
 
-import com.github.klyser.astralhorizons.registry.AHBlocks;
-import com.github.klyser.astralhorizons.registry.AHCreativeModeTabs;
-import com.github.klyser.astralhorizons.registry.AHItems;
+import com.github.klyser.astralhorizons.registry.*;
 import com.github.klyser.astralhorizons.util.AdvancementUtil;
 import com.github.klyser.astralhorizons.world.region.AstralAnomalyRegion;
-import com.github.klyser.astralhorizons.world.surfacerules.AstralAnomalySurfaceRuleData;
+import com.github.klyser.astralhorizons.world.surfacerule.AHSurfaceRules;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -13,7 +11,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.dimension.end.EndDragonFight;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import terrablender.api.RegionType;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
@@ -26,6 +23,7 @@ public class AstralHorizons
 		AHItems.init();
 		AHCreativeModeTabs.init();
 		AHBlocks.init();
+		AHSoundEvents.init();
 	}
 
 	/**
@@ -45,11 +43,17 @@ public class AstralHorizons
 		}
 	}
 
-	public static Runnable initTerrablender() {
-		return () -> {
-			Regions.register(new AstralAnomalyRegion(new ResourceLocation(AstralHorizons.MOD_ID, "astral_anomaly"), RegionType.OVERWORLD, 2));
+	public static void initTerrablender() {
+		Regions.register(new AstralAnomalyRegion(id("anomalous_region"), 25));
+		SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, AHSurfaceRules.makeRules());
+	}
 
-			SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, AstralAnomalySurfaceRuleData.makeRules());
-		};
+	/**
+	 * Creates a new ResourceLocation with the given name and the Astral Horizons mod id.
+	 * @param name the name of the resource
+	 * @return the new ResourceLocation
+	 */
+	public static ResourceLocation id(String name) {
+		return new ResourceLocation(MOD_ID, name);
 	}
 }

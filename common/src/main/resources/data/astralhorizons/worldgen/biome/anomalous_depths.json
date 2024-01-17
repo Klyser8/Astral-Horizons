@@ -1,0 +1,24 @@
+{
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "has_precipitation": false,
+  "creature_spawn_probability": 0,
+  "effects": {
+    "sky_color": 11902646,
+    "fog_color": 8090289,
+    "water_color": 8090289,
+    "water_fog_color": 8157330,
+    "grass_color": 7102623,
+    "foliage_color": 10395294,
+    "music": {
+      "sound": "astralhorizons:astral_anomaly_surface",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": false
+    }
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {},
+  "features": []
+}

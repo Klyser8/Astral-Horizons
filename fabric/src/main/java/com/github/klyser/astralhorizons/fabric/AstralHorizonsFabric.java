@@ -27,11 +27,10 @@ public class AstralHorizonsFabric implements ModInitializer, TerraBlenderApi {
                 }
             }, 1000);
         });
-        BlockRenderLayerMap.INSTANCE.putBlock(AHBlocks.ANOMALOUS_GRASS_BLOCK.get(), RenderType.cutout());
     }
 
     @Override
     public void onTerraBlenderInitialized() {
-        AstralHorizons.initTerrablender().run();
+        AstralHorizons.initTerrablender();
     }
 }

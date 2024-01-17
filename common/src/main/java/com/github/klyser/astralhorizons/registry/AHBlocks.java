@@ -1,15 +1,8 @@
 package com.github.klyser.astralhorizons.registry;
 
-import com.github.klyser.astralhorizons.block.AHFallingBlock;
-import com.github.klyser.astralhorizons.block.AnomalousGrassBlock;
-import com.github.klyser.astralhorizons.block.AnomalousStoneBricks;
-import com.github.klyser.astralhorizons.block.HorizontalDirectionalSlabBlock;
-import net.minecraft.world.item.context.BlockPlaceContext;
+import com.github.klyser.astralhorizons.block.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockSetType;
 
 import java.util.function.Supplier;
 
@@ -19,87 +12,239 @@ public class AHBlocks {
 
     public static void init() {}
 
-    public static final Supplier<Block> ANOMALOUS_DIRT = registerBlock("anomalous_dirt", () ->
+    public static final Supplier<Block> ANOMADIRT = registerBlock("anomadirt", () ->
             new Block(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.DIRT)
                     .strength(1.0f)));
-    public static final Supplier<Block> ANOMALOUS_GRASS_BLOCK = registerBlock("anomalous_grass_block", () ->
+    public static final Supplier<Block> ANOMAGRASS_BLOCK = registerBlock("anomagrass_block", () ->
             new AnomalousGrassBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.GRASS_BLOCK)
                     .strength(1.0f)));
-    public static final Supplier<Block> ANOMALOUS_STONE = registerBlock("anomalous_stone", () ->
+    public static final Supplier<Block> ANOMASTONE = registerBlock("anomastone", () ->
             new Block(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE)
                     .strength(4.0f, 6.0f)));
-    public static final Supplier<Block> ANOMALOUS_STONE_SLAB = registerBlock("anomalous_slab", () ->
+    public static final Supplier<Block> LUTIEL = registerBlock("lutiel", () ->
+            new AHFallingBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.GRAVEL)
+                    .strength(0.9f)));
+    public static final Supplier<Block> ANOMASTONE_SLAB = registerBlock("anomastone_slab", () ->
             new SlabBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_SLAB)
                     .strength(4.0f, 6.0f)));
-    public static final Supplier<Block> ANOMALOUS_STONE_STAIRS = registerBlock("anomalous_stairs", () ->
-            new StairBlock(ANOMALOUS_STONE.get().defaultBlockState(), BlockBehaviour.Properties
+    public static final Supplier<Block> ANOMASTONE_STAIRS = registerBlock("anomastone_stairs", () ->
+            new StairBlock(ANOMASTONE.get().defaultBlockState(), BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_STAIRS)
                     .strength(4.0f, 6.0f)));
-    public static final Supplier<Block> ANOMALOUS_STONE_PRESSURE_PLATE = registerBlock("anomalous_pressure_plate", () ->
+    public static final Supplier<Block> ANOMASTONE_PRESSURE_PLATE = registerBlock("anomastone_pressure_plate", () ->
             new PressurePlateBlock(AHBlockSetTypes.ANOMALOUS_STONE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_PRESSURE_PLATE)
                     .strength(4.0f, 6.0f)));
-    public static final Supplier<Block> ANOMALOUS_STONE_BUTTON = registerBlock("anomalous_button", () ->
+    public static final Supplier<Block> ANOMASTONE_BUTTON = registerBlock("anomastone_button", () ->
             new ButtonBlock(AHBlockSetTypes.ANOMALOUS_STONE, 20, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_BUTTON)
                     .strength(4.0f, 6.0f)));
-    public static final Supplier<Block> ANOMALOUS_COBBLESTONE = registerBlock("anomalous_cobblestone", () ->
+    public static final Supplier<Block> COBBLED_ANOMASTONE = registerBlock("cobbled_anomastone", () ->
             new Block(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.COBBLESTONE)
                     .strength(4.5f, 6.0f)));
-    public static final Supplier<Block> ANOMALOUS_COBBLESTONE_SLAB = registerBlock("anomalous_cobblestone_slab", () ->
+    public static final Supplier<Block> COBBLED_ANOMASTONE_SLAB = registerBlock("cobbled_anomastone_slab", () ->
             new SlabBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.COBBLESTONE_SLAB)
                     .strength(4.5f, 6.0f)));
-    public static final Supplier<Block> ANOMALOUS_COBBLESTONE_STAIRS = registerBlock("anomalous_cobblestone_stairs", () ->
-            new StairBlock(ANOMALOUS_COBBLESTONE.get().defaultBlockState(), BlockBehaviour.Properties
+    public static final Supplier<Block> COBBLED_ANOMASTONE_STAIRS = registerBlock("cobbled_anomastone_stairs", () ->
+            new StairBlock(COBBLED_ANOMASTONE.get().defaultBlockState(), BlockBehaviour.Properties
                     .ofFullCopy(Blocks.COBBLESTONE_STAIRS)
                     .strength(4.5f, 6.0f)));
-    public static final Supplier<Block> ANOMALOUS_COBBLESTONE_WALL = registerBlock("anomalous_cobblestone_wall", () ->
+    public static final Supplier<Block> COBBLED_ANOMASTONE_WALL = registerBlock("cobbled_anomastone_wall", () ->
             new WallBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.COBBLESTONE_WALL)
                     .strength(4.5f, 6.0f)));
-    public static final Supplier<Block> ANOMALOUS_STONE_BRICKS = registerBlock("anomalous_stone_bricks", () ->
+    public static final Supplier<Block> ANOMASTONE_BRICKS = registerBlock("anomastone_bricks", () ->
             new AnomalousStoneBricks(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_BRICKS)
                     .strength(4.0f, 6.0f)));
-    public static final Supplier<Block> ANOMALOUS_STONE_BRICK_SLAB = registerBlock("anomalous_stone_brick_slab", () ->
+    public static final Supplier<Block> ANOMASTONE_BRICK_SLAB = registerBlock("anomastone_brick_slab", () ->
             new HorizontalDirectionalSlabBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_BRICK_SLAB)
                     .strength(4.0f, 6.0f)));
-    public static final Supplier<Block> ANOMALOUS_STONE_BRICK_STAIRS = registerBlock("anomalous_stone_brick_stairs", () ->
-            new StairBlock(ANOMALOUS_STONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties
+    public static final Supplier<Block> ANOMASTONE_BRICK_STAIRS = registerBlock("anomastone_brick_stairs", () ->
+            new StairBlock(ANOMASTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_BRICK_STAIRS)
                     .strength(4.0f, 6.0f)));
-    public static final Supplier<Block> ANOMALOUS_STONE_BRICK_WALL = registerBlock("anomalous_stone_brick_wall", () ->
+    public static final Supplier<Block> ANOMASTONE_BRICK_WALL = registerBlock("anomastone_brick_wall", () ->
             new WallBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_BRICK_WALL)
                     .forceSolidOn()
                     .strength(4.0f, 6.0f)));
-    public static final Supplier<Block> CHISELED_ANOMALOUS_STONE_BRICKS = registerBlock("chiseled_anomalous_stone_bricks", () ->
+    public static final Supplier<Block> CHISELED_ANOMASTONE_BRICKS = registerBlock("chiseled_anomastone_bricks", () ->
             new Block(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHISELED_STONE_BRICKS)
                     .strength(4.0f, 6.0f)));
-    public static final Supplier<Block> ANOMALOUS_SAND = registerBlock("anomalous_sand", () -> //TODO create class extending FallingBlock
+    public static final Supplier<Block> CHLORITE = registerBlock("chlorite", () ->
+            new Block(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.STONE)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> CHLORITE_SLAB = registerBlock("chlorite_slab", () ->
+            new SlabBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.STONE_SLAB)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> CHLORITE_STAIRS = registerBlock("chlorite_stairs", () ->
+            new StairBlock(CHLORITE.get().defaultBlockState(), BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.STONE_STAIRS)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> CHLORITE_WALL = registerBlock("chlorite_wall", () ->
+            new WallBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.COBBLESTONE_WALL)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> CHLORITE_BRICKS = registerBlock("chlorite_bricks", () ->
+            new Block(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.NETHER_BRICKS)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> CHLORITE_BRICK_SLAB = registerBlock("chlorite_brick_slab", () ->
+            new SlabBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.NETHER_BRICK_SLAB)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> CHLORITE_BRICK_STAIRS = registerBlock("chlorite_brick_stairs", () ->
+            new StairBlock(CHLORITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.NETHER_BRICK_STAIRS)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> CHLORITE_BRICK_WALL = registerBlock("chlorite_brick_wall", () ->
+            new WallBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.NETHER_BRICK_WALL)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> SIDEROCK = registerBlock("siderock", () ->
+            new Block(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.STONE)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> SIDEROCK_SLAB = registerBlock("siderock_slab", () ->
+            new SlabBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.STONE_SLAB)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> SIDEROCK_STAIRS = registerBlock("siderock_stairs", () ->
+            new StairBlock(SIDEROCK.get().defaultBlockState(), BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.STONE_STAIRS)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> SIDEROCK_WALL = registerBlock("siderock_wall", () ->
+            new WallBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.COBBLESTONE_WALL)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> SIDEROCK_BRICKS = registerBlock("siderock_bricks", () ->
+            new Block(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.NETHER_BRICKS)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> SIDEROCK_BRICK_SLAB = registerBlock("siderock_brick_slab", () ->
+            new SlabBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.NETHER_BRICK_SLAB)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> SIDEROCK_BRICK_STAIRS = registerBlock("siderock_brick_stairs", () ->
+            new StairBlock(SIDEROCK_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.NETHER_BRICK_STAIRS)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> SIDEROCK_BRICK_WALL = registerBlock("siderock_brick_wall", () ->
+            new WallBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.NETHER_BRICK_WALL)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> AURANITE = registerBlock("auranite", () ->
+            new Block(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.STONE)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> AURANITE_SLAB = registerBlock("auranite_slab", () ->
+            new SlabBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.STONE_SLAB)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> AURANITE_STAIRS = registerBlock("auranite_stairs", () ->
+            new StairBlock(AURANITE.get().defaultBlockState(), BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.STONE_STAIRS)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> AURANITE_WALL = registerBlock("auranite_wall", () ->
+            new WallBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.COBBLESTONE_WALL)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> AURANITE_BRICKS = registerBlock("auranite_bricks", () ->
+            new Block(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.NETHER_BRICKS)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> AURANITE_BRICK_SLAB = registerBlock("auranite_brick_slab", () ->
+            new SlabBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.NETHER_BRICK_SLAB)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> AURANITE_BRICK_STAIRS = registerBlock("auranite_brick_stairs", () ->
+            new StairBlock(AURANITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.NETHER_BRICK_STAIRS)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> AURANITE_BRICK_WALL = registerBlock("auranite_brick_wall", () ->
+            new WallBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.NETHER_BRICK_WALL)
+                    .strength(4.0f, 6.0f)));
+    public static final Supplier<Block> ANOMASAND = registerBlock("anomasand", () ->
             new AHFallingBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.SAND)
                     .strength(0.75f)));
-    public static final Supplier<Block> ANOMALOUS_LOG = registerBlock("anomalous_log", () ->
+    public static final Supplier<Block> ANOMASANDSTONE = registerBlock("anomasandstone", () ->
+            new Block(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.SANDSTONE)
+                    .strength(1.3f)));
+    public static final Supplier<Block> ANOMASANDSTONE_SLAB = registerBlock("anomasandstone_slab", () ->
+            new SlabBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.SANDSTONE_SLAB)
+                    .strength(1.3f)));
+    public static final Supplier<Block> ANOMASANDSTONE_STAIRS = registerBlock("anomasandstone_stairs", () ->
+            new StairBlock(ANOMASANDSTONE.get().defaultBlockState(), BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.SANDSTONE_STAIRS)
+                    .strength(1.3f)));
+    public static final Supplier<Block> ANOMASANDSTONE_WALL = registerBlock("anomasandstone_wall", () ->
+            new WallBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.SANDSTONE_WALL)
+                    .strength(1.3f)));
+    public static final Supplier<Block> SMOOTH_ANOMASANDSTONE = registerBlock("smooth_anomasandstone", () ->
+            new Block(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.SMOOTH_SANDSTONE)
+                    .strength(1.3f)));
+    public static final Supplier<Block> SMOOTH_ANOMASANDSTONE_SLAB = registerBlock("smooth_anomasandstone_slab", () ->
+            new SlabBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.SMOOTH_SANDSTONE_SLAB)
+                    .strength(1.3f)));
+    public static final Supplier<Block> SMOOTH_ANOMASANDSTONE_STAIRS = registerBlock("smooth_anomasandstone_stairs", () ->
+            new StairBlock(SMOOTH_ANOMASANDSTONE.get().defaultBlockState(), BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.SMOOTH_SANDSTONE_STAIRS)
+                    .strength(1.3f)));
+    public static final Supplier<Block> CUT_ANOMASANDSTONE = registerBlock("cut_anomasandstone", () ->
+            new Block(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CUT_SANDSTONE)
+                    .strength(1.3f)));
+    public static final Supplier<Block> CUT_ANOMASANDSTONE_SLAB = registerBlock("cut_anomasandstone_slab", () ->
+            new SlabBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CUT_SANDSTONE_SLAB)
+                    .strength(1.3f)));
+    public static final Supplier<Block> ANOMALICE = registerBlock("anomalice", () ->
+            new HalfTransparentBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.ICE)
+                    .strength(0.75f)));
+    public static final Supplier<Block> ANOMASNOW_BLOCK = registerBlock("anomasnow_block", () ->
+            new Block(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.SNOW_BLOCK)
+                    .strength(0.33f)));
+    public static final Supplier<Block> SCURANE_LOG = registerBlock("scurane_log", () ->
             new RotatedPillarBlock(BlockBehaviour.Properties
-                    .ofFullCopy(Blocks.OAK_LOG)
+                    .ofFullCopy(Blocks.CHERRY_LOG)
                     .strength(3.0f)));
-    public static final Supplier<Block> ANOMALOUS_WOOD = registerBlock("anomalous_wood", () ->
+    public static final Supplier<Block> SCURANE_WOOD = registerBlock("scurane_wood", () ->
             new RotatedPillarBlock(BlockBehaviour.Properties
-                    .ofFullCopy(Blocks.OAK_WOOD)
+                    .ofFullCopy(Blocks.CHERRY_WOOD)
                     .strength(3.0f)));
-    public static final Supplier<Block> ANOMALOUS_LEAVES = registerBlock("anomalous_leaves", () ->
+    public static final Supplier<Block> SCURANE_LEAVES = registerBlock("scurane_leaves", () ->
             new LeavesBlock(BlockBehaviour.Properties
-                    .ofFullCopy(Blocks.OAK_LEAVES)
+                    .ofFullCopy(Blocks.CHERRY_LEAVES)
                     .strength(0.3f)
                     .randomTicks()));
+    public static final Supplier<Block> ANOMALOUS_SHORT_GRASS = registerBlock("anomalous_short_grass", () ->
+            new AnomalousBushBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.SHORT_GRASS)
+                    .strength(0.2f), AHTags.ANOMALOUS_DIRT)); //FIXME create tags class
+    public static final Supplier<Block> SICKENED_SHRUB = registerBlock("sickened_shrub", () ->
+            new AnomalousBushBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.FERN)
+                    .strength(0.2f), AHTags.ANOMALOUS_DIRT)); //FIXME same here!
 
 }

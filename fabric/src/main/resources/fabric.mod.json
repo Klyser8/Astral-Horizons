@@ -16,6 +16,9 @@
     "main": [
       "com.github.klyser.astralhorizons.fabric.AstralHorizonsFabric"
     ],
+    "client": [
+      "com.github.klyser.astralhorizons.fabric.client.AstralHorizonsFabricClient"
+    ],
     "fabric-datagen": [
       "com.github.klyser.astralhorizons.fabric.datagen.AHDataGenerator"
     ],
