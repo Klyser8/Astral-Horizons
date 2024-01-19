@@ -1,13 +1,18 @@
 package com.github.klyser.astralhorizons.platform.forge;
 
 import com.github.klyser.astralhorizons.AstralHorizons;
+import com.github.klyser.astralhorizons.forge.AHForgePacketHandler;
+import com.github.klyser.astralhorizons.network.AHPacket;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -41,6 +46,10 @@ public class CommonPlatformHelperImpl {
 
     public static <T extends SoundEvent> Supplier<T> registerSoundEvent(String name, Supplier<T> soundEvent) {
         return SOUND_EVENTS.register(name, soundEvent);
+    }
+
+    public static void sendPacketToClient(AHPacket packet, ResourceLocation channel, ServerPlayer player) {
+        AHForgePacketHandler.INSTANCE.sendTo(packet, player.connection.connection, NetworkDirection.PLAY_TO_CLIENT);
     }
 
 }

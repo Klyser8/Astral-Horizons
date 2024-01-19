@@ -1,12 +1,13 @@
 package com.github.klyser.astralhorizons.platform;
 
+import com.github.klyser.astralhorizons.network.AHPacket;
 import dev.architectury.injectables.annotations.ExpectPlatform;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
 
 import java.util.function.Supplier;
 
@@ -29,6 +30,11 @@ public class CommonPlatformHelper {
 
     @ExpectPlatform
     public static <T extends SoundEvent> Supplier<T> registerSoundEvent(String name, Supplier<T> soundEvent) {
+        throw new AssertionError();
+    }
+
+    @ExpectPlatform
+    public static void sendPacketToClient(AHPacket packet, ResourceLocation channel, ServerPlayer player) {
         throw new AssertionError();
     }
 

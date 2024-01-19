@@ -1,9 +1,16 @@
 package com.github.klyser.astralhorizons.platform.fabric;
 
 import com.github.klyser.astralhorizons.AstralHorizons;
+import com.github.klyser.astralhorizons.network.AHPacket;
+import com.github.klyser.astralhorizons.registry.AHNetworkingConstants;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -11,6 +18,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.function.Supplier;
 
 public class CommonPlatformHelperImpl {
@@ -35,9 +44,13 @@ public class CommonPlatformHelperImpl {
         return () -> registry;
     }
 
-    public static <T extends Feature<?>> Supplier<T> registerFeature(String name, Supplier<T> feature) {
-        T registry = Registry.register(BuiltInRegistries.FEATURE, new ResourceLocation(AstralHorizons.MOD_ID, name), feature.get());
-        return () -> registry;
+    /**
+     * Send a packet to a client.
+     */
+    public static void sendPacketToClient(AHPacket packet, ResourceLocation channel, ServerPlayer player) {
+        FriendlyByteBuf buf = PacketByteBufs.create();
+        packet.toBytes(buf);
+        ServerPlayNetworking.send(player, channel, buf);
     }
 
 }

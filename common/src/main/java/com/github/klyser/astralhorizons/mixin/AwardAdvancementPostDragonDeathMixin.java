@@ -20,8 +20,8 @@ public abstract class AwardAdvancementPostDragonDeathMixin extends Mob {
     @Inject(method = "tickDeath", at = @At(value = "INVOKE",
             target = "Lnet/minecraft/world/entity/boss/enderdragon/EnderDragon;" +
                     "gameEvent(Lnet/minecraft/world/level/gameevent/GameEvent;)V"))
-    private void awardAdvancementPostDragonDeath(CallbackInfo ci) {
-        MixinCallbacks.AwardAdvancementPostDragonDeathCallback(level());
-        //serverLevel.getServer().getWorldData().endDragonFightData().dragonKilled();???
+    private void postDragonDeath(CallbackInfo ci) {
+        MixinCallbacks.awardAdvancementPostDragonDeathCallback(level());
+        MixinCallbacks.updateDragonStatusForClientsCallback(level());
     }
 }

@@ -2,7 +2,9 @@ package com.github.klyser.astralhorizons.forge;
 
 import com.github.klyser.astralhorizons.AstralHorizons;
 import com.github.klyser.astralhorizons.forge.client.AstralHorizonsForgeClient;
+import com.github.klyser.astralhorizons.network.EnderDragonStatusPacket;
 import com.github.klyser.astralhorizons.platform.forge.CommonPlatformHelperImpl;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -12,6 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.minecraftforge.network.NetworkDirection;
 
 import static com.github.klyser.astralhorizons.AstralHorizons.MOD_ID;
 
@@ -20,6 +23,7 @@ public class AstralHorizonsForge {
 
     public AstralHorizonsForge() {
         AstralHorizons.init();
+        AHForgePacketHandler.init(); //TODO: Check if this is the right place to put this.
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         CommonPlatformHelperImpl.ITEMS.register(bus);
         CommonPlatformHelperImpl.CREATIVE_MODE_TABS.register(bus);
@@ -39,7 +43,8 @@ public class AstralHorizonsForge {
 
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-        Player player = event.getEntity();
+        ServerPlayer player = (ServerPlayer) event.getEntity();
         AstralHorizons.awardDragonDeadAdvancement(player);
+        AHForgePacketHandler.INSTANCE.sendTo(new EnderDragonStatusPacket(player.level().getServer().getWorldData().endDragonFightData().dragonKilled()), player.connection.connection, NetworkDirection.PLAY_TO_CLIENT);
     }
 }

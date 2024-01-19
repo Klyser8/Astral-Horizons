@@ -17,6 +17,8 @@ public class AHItems {
 
     // ---- BLOCKS ----
 
+    public static final Supplier<Item> TEST_TINTED_BLOCK = CommonPlatformHelper.registerItem(
+            "test_tinted_block", () -> new BlockItem(AHBlocks.TEST_TINTED_BLOCK.get(), new Item.Properties()));
     public static final Supplier<Item> ANOMADIRT = CommonPlatformHelper.registerItem(
             "anomadirt", () -> new BlockItem(AHBlocks.ANOMADIRT.get(), new Item.Properties()));
     public static final Supplier<Item> ANOMAGRASS_BLOCK = CommonPlatformHelper.registerItem(

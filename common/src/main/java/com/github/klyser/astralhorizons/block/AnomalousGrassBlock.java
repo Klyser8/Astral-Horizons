@@ -16,7 +16,6 @@ import net.minecraft.world.level.lighting.LightEngine;
 import org.jetbrains.annotations.NotNull;
 
 public class AnomalousGrassBlock extends SpreadingSnowyDirtBlock {
-    public static final MapCodec<AnomalousGrassBlock> CODEC = simpleCodec(AnomalousGrassBlock::new);
     public AnomalousGrassBlock(Properties properties) {
         super(properties);
     }
@@ -32,11 +31,6 @@ public class AnomalousGrassBlock extends SpreadingSnowyDirtBlock {
         }
         int i = LightEngine.getLightBlockInto(levelReader, state, pos, blockState, blockPos, Direction.UP, blockState.getLightBlock(levelReader, blockPos));
         return i < levelReader.getMaxLightLevel();
-    }
-
-    @Override
-    protected @NotNull MapCodec<? extends SpreadingSnowyDirtBlock> codec() {
-        return CODEC;
     }
 
     private static boolean canPropagate(BlockState state, LevelReader level, BlockPos pos) {
