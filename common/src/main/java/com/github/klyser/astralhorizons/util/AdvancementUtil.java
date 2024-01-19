@@ -1,6 +1,7 @@
 package com.github.klyser.astralhorizons.util;
 
 import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -20,8 +21,8 @@ public final class AdvancementUtil {
 	 * @param resourceLocation the ResourceLocation of the advancement
 	 * @return the AdvancementHolder for the given ResourceLocation
 	 */
-	public static Advancement getAdvancement(ServerLevel level, ResourceLocation resourceLocation) {
-		return level.getServer().getAdvancements().getAdvancement(resourceLocation);
+	public static AdvancementHolder getAdvancementHolder(ServerLevel level, ResourceLocation resourceLocation) {
+		return level.getServer().getAdvancements().get(resourceLocation);
 	}
 
 	/**
@@ -34,7 +35,7 @@ public final class AdvancementUtil {
 	 * @return true if the advancement was completed, false otherwise
 	 */
 	public static boolean completeAdvancement(ServerPlayer player, ResourceLocation resourceLocation, String criterion) {
-		Advancement adv = getAdvancement(player.serverLevel(), resourceLocation);
+		AdvancementHolder adv = getAdvancementHolder(player.serverLevel(), resourceLocation);
 
 		if (adv != null)
 			return player.getAdvancements().award(adv, criterion);
@@ -50,7 +51,7 @@ public final class AdvancementUtil {
 	 * @return true if the given advancement is completed for the given player
 	 */
 	public static boolean isAdvancementCompleted(ServerPlayer player, ResourceLocation resourceLocation) {
-		Advancement adv = getAdvancement(player.serverLevel(), resourceLocation);
+		AdvancementHolder adv = getAdvancementHolder(player.serverLevel(), resourceLocation);
 
 		if (adv != null)
 			return player.getAdvancements().getOrStartProgress(adv).isDone();

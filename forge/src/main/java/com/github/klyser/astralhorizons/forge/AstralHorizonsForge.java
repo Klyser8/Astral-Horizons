@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.network.NetworkDirection;
+import net.minecraftforge.network.PacketDistributor;
 
 import static com.github.klyser.astralhorizons.AstralHorizons.MOD_ID;
 
@@ -45,6 +46,6 @@ public class AstralHorizonsForge {
     public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
         ServerPlayer player = (ServerPlayer) event.getEntity();
         AstralHorizons.awardDragonDeadAdvancement(player);
-        AHForgePacketHandler.INSTANCE.sendTo(new EnderDragonStatusPacket(player.level().getServer().getWorldData().endDragonFightData().dragonKilled()), player.connection.connection, NetworkDirection.PLAY_TO_CLIENT);
+        AHForgePacketHandler.INSTANCE.send(new EnderDragonStatusPacket(player.level().getServer().getWorldData().endDragonFightData().dragonKilled()), PacketDistributor.PLAYER.with(player));
     }
 }

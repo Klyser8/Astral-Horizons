@@ -9,9 +9,15 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import org.jetbrains.annotations.NotNull;
 
 public class AnomalousStoneBricks extends HorizontalDirectionalBlock {
+    public static final MapCodec<AnomalousStoneBricks> CODEC = simpleCodec(AnomalousStoneBricks::new);
 
     public AnomalousStoneBricks(Properties properties) {
         super(properties);
+    }
+
+    @Override
+    protected @NotNull MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return CODEC;
     }
 
     @Override

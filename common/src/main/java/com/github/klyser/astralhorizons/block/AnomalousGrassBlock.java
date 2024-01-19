@@ -16,6 +16,7 @@ import net.minecraft.world.level.lighting.LightEngine;
 import org.jetbrains.annotations.NotNull;
 
 public class AnomalousGrassBlock extends SpreadingSnowyDirtBlock {
+    public static final MapCodec<AnomalousGrassBlock> CODEC = simpleCodec(AnomalousGrassBlock::new);
     public AnomalousGrassBlock(Properties properties) {
         super(properties);
     }
@@ -36,6 +37,11 @@ public class AnomalousGrassBlock extends SpreadingSnowyDirtBlock {
     private static boolean canPropagate(BlockState state, LevelReader level, BlockPos pos) {
         BlockPos blockPos = pos.above();
         return canBeGrass(state, level, pos) && !level.getFluidState(blockPos).is(FluidTags.WATER);
+    }
+
+    @Override
+    protected @NotNull MapCodec<? extends SpreadingSnowyDirtBlock> codec() {
+        return CODEC;
     }
 
     @Override

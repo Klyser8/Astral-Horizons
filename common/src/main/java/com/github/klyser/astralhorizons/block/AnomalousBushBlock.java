@@ -13,6 +13,9 @@ import net.minecraft.world.level.block.state.BlockState;
 public class AnomalousBushBlock extends BushBlock {
 
     private final TagKey<Block> mayPlaceOn;
+    public static final MapCodec<AnomalousBushBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            AnomalousBushBlock.propertiesCodec(), TagKey.hashedCodec(Registries.BLOCK).fieldOf("may_place_on").forGetter(block -> block.mayPlaceOn)
+    ).apply(instance, AnomalousBushBlock::new));
     public AnomalousBushBlock(Properties properties, TagKey<Block> mayPlaceOn) {
         super(properties);
         this.mayPlaceOn = mayPlaceOn;
@@ -21,5 +24,10 @@ public class AnomalousBushBlock extends BushBlock {
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
         return state.is(mayPlaceOn);
+    }
+
+    @Override
+    protected MapCodec<? extends BushBlock> codec() {
+        return CODEC;
     }
 }

@@ -49,7 +49,7 @@ public class CommonPlatformHelperImpl {
     }
 
     public static void sendPacketToClient(AHPacket packet, ResourceLocation channel, ServerPlayer player) {
-        AHForgePacketHandler.INSTANCE.sendTo(packet, player.connection.connection, NetworkDirection.PLAY_TO_CLIENT);
+        AHForgePacketHandler.INSTANCE.send(packet, player.connection.getConnection());
     }
 
 }
