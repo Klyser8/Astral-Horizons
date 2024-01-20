@@ -4,7 +4,6 @@ import com.github.klyser.astralhorizons.block.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
-import java.util.List;
 import java.util.function.Supplier;
 
 import static com.github.klyser.astralhorizons.platform.CommonPlatformHelper.registerBlock;
@@ -291,50 +290,52 @@ public class AHBlocks {
             new WallSignBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_SIGN)
                     .strength(3.0f)));
-    public static final Supplier<Block> SCURANE_WALL_SIGN = registerBlock("scurane_wall_sign", () ->
+/*    public static final Supplier<Block> SCURANE_WALL_SIGN = registerBlock("scurane_wall_sign", () ->
             new WallSignBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_WALL_SIGN)
-                    .strength(3.0f)));
+                    .strength(3.0f)));*/
     public static final Supplier<Block> SCURANE_HANGING_SIGN = registerBlock("scurane_hanging_sign", () ->
             new CeilingHangingSignBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_HANGING_SIGN)
                     .strength(3.0f)));
-    public static final Supplier<Block> SCURANE_WALL_HANGING_SIGN = registerBlock("scurane_wall_hanging_sign", () ->
+/*    public static final Supplier<Block> SCURANE_WALL_HANGING_SIGN = registerBlock("scurane_wall_hanging_sign", () ->
             new WallHangingSignBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_WALL_HANGING_SIGN)
-                    .strength(3.0f)));
+                    .strength(3.0f)));*/
     public static final Supplier<Block> ANOMALOUS_SHORT_GRASS = registerBlock("anomalous_short_grass", () ->
             new AnomalousBushBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.SHORT_GRASS)
-                    .strength(0.2f), AHTags.ANOMALOUS_DIRT)); //FIXME create tags class
+                    .strength(0.2f), AHTags.ANOMALOUS_DIRT));
     public static final Supplier<Block> SICKENED_SHRUB = registerBlock("sickened_shrub", () ->
             new AnomalousBushBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.FERN)
-                    .strength(0.2f), AHTags.ANOMALOUS_DIRT)); //FIXME same here!
+                    .strength(0.2f), AHTags.ANOMALOUS_DIRT));
 
-    public static final Block[] ANOMALOUS_TINTED_BLOCKS = new Block[]{
-            AHBlocks.COBBLED_ANOMASTONE.get(), AHBlocks.COBBLED_ANOMASTONE_SLAB.get(), AHBlocks.COBBLED_ANOMASTONE_STAIRS.get(),
-            AHBlocks.COBBLED_ANOMASTONE_WALL.get(), AHBlocks.ANOMASTONE_BRICKS.get(), AHBlocks.ANOMASTONE_BRICK_STAIRS.get(),
-            AHBlocks.ANOMASTONE_BRICK_SLAB.get(), AHBlocks.ANOMASTONE_BRICK_WALL.get(), AHBlocks.CHISELED_ANOMASTONE_BRICKS.get(),
-            AHBlocks.CHLORITE.get(), AHBlocks.CHLORITE_SLAB.get(), AHBlocks.CHLORITE_STAIRS.get(),
-            AHBlocks.CHLORITE_WALL.get(), AHBlocks.CHLORITE_BRICKS.get(), AHBlocks.CHLORITE_BRICK_SLAB.get(),
-            AHBlocks.CHLORITE_BRICK_STAIRS.get(), AHBlocks.CHLORITE_BRICK_WALL.get(), AHBlocks.SIDEROCK.get(),
-            AHBlocks.SIDEROCK_SLAB.get(), AHBlocks.SIDEROCK_STAIRS.get(), AHBlocks.SIDEROCK_WALL.get(),
-            AHBlocks.SIDEROCK_BRICKS.get(), AHBlocks.SIDEROCK_BRICK_SLAB.get(), AHBlocks.SIDEROCK_BRICK_STAIRS.get(),
-            AHBlocks.SIDEROCK_BRICK_WALL.get(), AHBlocks.AURANITE.get(), AHBlocks.AURANITE_SLAB.get(),
-            AHBlocks.AURANITE_STAIRS.get(), AHBlocks.AURANITE_WALL.get(), AHBlocks.AURANITE_BRICKS.get(),
-            AHBlocks.AURANITE_BRICK_SLAB.get(), AHBlocks.AURANITE_BRICK_STAIRS.get(), AHBlocks.AURANITE_BRICK_WALL.get(),
-            AHBlocks.ANOMASAND.get(), AHBlocks.ANOMASANDSTONE.get(), AHBlocks.ANOMASANDSTONE_SLAB.get(),
-            AHBlocks.ANOMASANDSTONE_STAIRS.get(), AHBlocks.ANOMASANDSTONE_WALL.get(), AHBlocks.SMOOTH_ANOMASANDSTONE.get(),
-            AHBlocks.SMOOTH_ANOMASANDSTONE_SLAB.get(), AHBlocks.SMOOTH_ANOMASANDSTONE_STAIRS.get(), AHBlocks.CUT_ANOMASANDSTONE.get(),
-            AHBlocks.CUT_ANOMASANDSTONE_SLAB.get(), AHBlocks.ANOMALICE.get(), AHBlocks.ANOMASNOW_BLOCK.get(),
-            AHBlocks.SCURANE_LOG.get(), AHBlocks.SCURANE_WOOD.get(), AHBlocks.STRIPPED_SCURANE_LOG.get(),
-            AHBlocks.STRIPPED_SCURANE_WOOD.get(), AHBlocks.SCURANE_LEAVES.get(), AHBlocks.SCURANE_PLANKS.get(),
-            AHBlocks.SCURANE_SLAB.get(), AHBlocks.SCURANE_STAIRS.get(), AHBlocks.SCURANE_FENCE.get(),
-            AHBlocks.SCURANE_FENCE_GATE.get(), AHBlocks.SCURANE_DOOR.get(), AHBlocks.SCURANE_TRAPDOOR.get(),
-            AHBlocks.SCURANE_PRESSURE_PLATE.get(), AHBlocks.SCURANE_BUTTON.get(), AHBlocks.SCURANE_SIGN.get(),
-            AHBlocks.SCURANE_HANGING_SIGN.get(), AHBlocks.ANOMALOUS_SHORT_GRASS.get(), AHBlocks.SICKENED_SHRUB.get(),
-            AHBlocks.TEST_TINTED_BLOCK.get()
+    public static Block[] getAnomalousTintedBlocks() {
+        return new Block[] {
+                AHBlocks.COBBLED_ANOMASTONE.get(), AHBlocks.COBBLED_ANOMASTONE_SLAB.get(), AHBlocks.COBBLED_ANOMASTONE_STAIRS.get(),
+                        AHBlocks.COBBLED_ANOMASTONE_WALL.get(), AHBlocks.ANOMASTONE_BRICKS.get(), AHBlocks.ANOMASTONE_BRICK_STAIRS.get(),
+                        AHBlocks.ANOMASTONE_BRICK_SLAB.get(), AHBlocks.ANOMASTONE_BRICK_WALL.get(), AHBlocks.CHISELED_ANOMASTONE_BRICKS.get(),
+                        AHBlocks.CHLORITE.get(), AHBlocks.CHLORITE_SLAB.get(), AHBlocks.CHLORITE_STAIRS.get(),
+                        AHBlocks.CHLORITE_WALL.get(), AHBlocks.CHLORITE_BRICKS.get(), AHBlocks.CHLORITE_BRICK_SLAB.get(),
+                        AHBlocks.CHLORITE_BRICK_STAIRS.get(), AHBlocks.CHLORITE_BRICK_WALL.get(), AHBlocks.SIDEROCK.get(),
+                        AHBlocks.SIDEROCK_SLAB.get(), AHBlocks.SIDEROCK_STAIRS.get(), AHBlocks.SIDEROCK_WALL.get(),
+                        AHBlocks.SIDEROCK_BRICKS.get(), AHBlocks.SIDEROCK_BRICK_SLAB.get(), AHBlocks.SIDEROCK_BRICK_STAIRS.get(),
+                        AHBlocks.SIDEROCK_BRICK_WALL.get(), AHBlocks.AURANITE.get(), AHBlocks.AURANITE_SLAB.get(),
+                        AHBlocks.AURANITE_STAIRS.get(), AHBlocks.AURANITE_WALL.get(), AHBlocks.AURANITE_BRICKS.get(),
+                        AHBlocks.AURANITE_BRICK_SLAB.get(), AHBlocks.AURANITE_BRICK_STAIRS.get(), AHBlocks.AURANITE_BRICK_WALL.get(),
+                        AHBlocks.ANOMASAND.get(), AHBlocks.ANOMASANDSTONE.get(), AHBlocks.ANOMASANDSTONE_SLAB.get(),
+                        AHBlocks.ANOMASANDSTONE_STAIRS.get(), AHBlocks.ANOMASANDSTONE_WALL.get(), AHBlocks.SMOOTH_ANOMASANDSTONE.get(),
+                        AHBlocks.SMOOTH_ANOMASANDSTONE_SLAB.get(), AHBlocks.SMOOTH_ANOMASANDSTONE_STAIRS.get(), AHBlocks.CUT_ANOMASANDSTONE.get(),
+                        AHBlocks.CUT_ANOMASANDSTONE_SLAB.get(), AHBlocks.ANOMALICE.get(), AHBlocks.ANOMASNOW_BLOCK.get(),
+                        AHBlocks.SCURANE_LOG.get(), AHBlocks.SCURANE_WOOD.get(), AHBlocks.STRIPPED_SCURANE_LOG.get(),
+                        AHBlocks.STRIPPED_SCURANE_WOOD.get(), AHBlocks.SCURANE_LEAVES.get(), AHBlocks.SCURANE_PLANKS.get(),
+                        AHBlocks.SCURANE_SLAB.get(), AHBlocks.SCURANE_STAIRS.get(), AHBlocks.SCURANE_FENCE.get(),
+                        AHBlocks.SCURANE_FENCE_GATE.get(), AHBlocks.SCURANE_DOOR.get(), AHBlocks.SCURANE_TRAPDOOR.get(),
+                        AHBlocks.SCURANE_PRESSURE_PLATE.get(), AHBlocks.SCURANE_BUTTON.get(), AHBlocks.SCURANE_SIGN.get(),
+                        AHBlocks.SCURANE_HANGING_SIGN.get(), AHBlocks.ANOMALOUS_SHORT_GRASS.get(), AHBlocks.SICKENED_SHRUB.get(),
+                        AHBlocks.TEST_TINTED_BLOCK.get()
     };
+    }
 
 }

@@ -6,15 +6,14 @@ import net.minecraft.resources.ResourceLocation;
 
 /**
  * Thank you, @lilycurlee, for your help! <3
- *
  * This is the packet that is sent to the client to tell it whether the dragon is dead or not.
  */
-public record EnderDragonStatusPacket(boolean dragonDefeated) implements AHPacket {
+public record EnderDragonStatusPacket(boolean dragonDefeatedOnce) implements AHPacket {
     public static final ResourceLocation ID = AstralHorizons.id("dragon_status");
 
     @Override
     public void toBytes(FriendlyByteBuf buffer) {
-        buffer.writeBoolean(dragonDefeated);
+        buffer.writeBoolean(dragonDefeatedOnce);
     }
 
     public static EnderDragonStatusPacket fromBytes(FriendlyByteBuf buf) {

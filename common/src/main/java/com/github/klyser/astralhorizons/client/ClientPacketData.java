@@ -2,13 +2,13 @@ package com.github.klyser.astralhorizons.client;
 
 import com.github.klyser.astralhorizons.network.EnderDragonStatusPacket;
 
-public class ClientHandler {
-    private ClientHandler() {}
+public class ClientPacketData {
+    private ClientPacketData() {}
 
-    private static boolean dragonDefeated = false;
+    private static boolean dragonDefeatedOnce = false;
 
     public static void handleDragonStatus(EnderDragonStatusPacket packet) {
-        dragonDefeated = packet.dragonDefeated();
+        dragonDefeatedOnce = packet.dragonDefeatedOnce();
     }
 
     /**
@@ -16,7 +16,10 @@ public class ClientHandler {
      * @return true if the dragon is dead, false otherwise.
      */
     public static boolean isDragonDead() {
-        return dragonDefeated;
+        return dragonDefeatedOnce;
     }
 
+    public static void setDragonDead(boolean dragonDefeated) {
+        ClientPacketData.dragonDefeatedOnce = dragonDefeated;
+    }
 }

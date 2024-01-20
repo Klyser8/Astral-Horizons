@@ -17,12 +17,13 @@ import terrablender.api.SurfaceRuleManager;
 public class AstralHorizons
 {
 	public static final String MOD_ID = "astralhorizons";
+	@SuppressWarnings("unused")
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	public static void init() {
+		AHBlocks.init();
 		AHItems.init();
 		AHCreativeModeTabs.init();
-		AHBlocks.init();
 		AHSoundEvents.init();
 	}
 

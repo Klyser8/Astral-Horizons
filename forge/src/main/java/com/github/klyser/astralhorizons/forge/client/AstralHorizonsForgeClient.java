@@ -4,7 +4,6 @@ import com.github.klyser.astralhorizons.client.AstralHorizonsClient;
 import com.github.klyser.astralhorizons.registry.AHBlocks;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -23,7 +22,7 @@ public class AstralHorizonsForgeClient {
     }
 
     private static void registerBlockColors(final RegisterColorHandlersEvent.Block event) {
-        event.register(AstralHorizonsClient.registerBlockColors(), AHBlocks.ANOMALOUS_TINTED_BLOCKS);
+        event.register(AstralHorizonsClient.registerBlockColors(), AHBlocks.getAnomalousTintedBlocks());
     }
 
 }

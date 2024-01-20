@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:purple_candle"
+    },
+    "title": "Astral Anomaly",
+    "description": "The overworld isn't quite the same",
+    "background": "minecraft:dirt",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:impossible",
+      "conditions": {}
+    }
+  }
+}

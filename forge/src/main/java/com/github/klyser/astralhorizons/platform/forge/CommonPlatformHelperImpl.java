@@ -10,9 +10,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.network.NetworkDirection;
+import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -29,8 +28,8 @@ public class CommonPlatformHelperImpl {
             DeferredRegister.create(ForgeRegistries.BLOCKS, AstralHorizons.MOD_ID);
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, AstralHorizons.MOD_ID);
-    public static final DeferredRegister<net.minecraft.world.level.levelgen.feature.Feature<?>> FEATURES =
-            DeferredRegister.create(ForgeRegistries.FEATURES, AstralHorizons.MOD_ID);
+/*    public static final DeferredRegister<net.minecraft.world.level.levelgen.feature.Feature<?>> FEATURES =
+            DeferredRegister.create(ForgeRegistries.FEATURES, AstralHorizons.MOD_ID);*/
 
     public static <T extends Item> Supplier<T> registerItem(String name, Supplier<T> item) {
         return ITEMS.register(name, item);
@@ -49,7 +48,7 @@ public class CommonPlatformHelperImpl {
     }
 
     public static void sendPacketToClient(AHPacket packet, ResourceLocation channel, ServerPlayer player) {
-        AHForgePacketHandler.INSTANCE.send(packet, player.connection.getConnection());
+        AHForgePacketHandler.INSTANCE.send(packet, PacketDistributor.PLAYER.with(player));
     }
 
 }
