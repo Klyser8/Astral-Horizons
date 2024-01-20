@@ -3,7 +3,6 @@ package com.github.klyser.astralhorizons.forge;
 import com.github.klyser.astralhorizons.AstralHorizons;
 import com.github.klyser.astralhorizons.client.ClientPacketData;
 import com.github.klyser.astralhorizons.network.EnderDragonStatusPacket;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.ChannelBuilder;
 import net.minecraftforge.network.SimpleChannel;
 

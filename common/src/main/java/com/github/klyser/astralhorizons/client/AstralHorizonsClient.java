@@ -2,8 +2,6 @@ package com.github.klyser.astralhorizons.client;
 
 import net.minecraft.client.color.block.BlockColor;
 
-import java.util.List;
-
 public class AstralHorizonsClient {
 
     public static void init() {
