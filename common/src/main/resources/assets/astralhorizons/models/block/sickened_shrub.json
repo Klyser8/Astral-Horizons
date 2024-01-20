@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "astralhorizons:block/sickened_shrub"
-  },
-  "render_type": "translucent"
-}

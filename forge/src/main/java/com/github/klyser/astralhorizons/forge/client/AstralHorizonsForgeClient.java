@@ -2,8 +2,6 @@ package com.github.klyser.astralhorizons.forge.client;
 
 import com.github.klyser.astralhorizons.client.AstralHorizonsClient;
 import com.github.klyser.astralhorizons.registry.AHBlocks;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -18,7 +16,7 @@ public class AstralHorizonsForgeClient {
     }
 
     private static void clientSetup(FMLClientSetupEvent event) {
-        ItemBlockRenderTypes.setRenderLayer(AHBlocks.ANOMAGRASS_BLOCK.get(), RenderType.cutout());
+        AstralHorizonsClient.init();
     }
 
     private static void registerBlockColors(final RegisterColorHandlersEvent.Block event) {

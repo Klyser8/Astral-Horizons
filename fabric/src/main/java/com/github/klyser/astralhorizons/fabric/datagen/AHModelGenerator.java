@@ -32,6 +32,7 @@ public class AHModelGenerator extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockModelGenerator) {
         createTrivialBlocks(blockModelGenerator);
+        createCrossBlocks(blockModelGenerator);
         createBlockFamilies(blockModelGenerator);
         createWoods(blockModelGenerator);
         createHorizontallyRotatedTrivialBlock(blockModelGenerator, AHBlocks.ANOMASTONE_BRICKS.get(), TexturedModel.CUBE);
@@ -41,6 +42,7 @@ public class AHModelGenerator extends FabricModelProvider {
 
         createSandstone(blockModelGenerator);
         createRandomlyRotatedBlock(blockModelGenerator, AHBlocks.LUTIEL.get());
+
     }
 
     @Override
@@ -49,6 +51,12 @@ public class AHModelGenerator extends FabricModelProvider {
         generateFlatItemFromCrossBlock(itemModelGenerator, AHItems.ANOMALOUS_SHORT_GRASS.get(), AHBlocks.ANOMALOUS_SHORT_GRASS.get()); //FIXME why won't this generate?
 //        itemModelGenerator.(AHItems.ANOMAGRASS_BLOCK.get(), ModelTemplates.FLAT_ITEM); //TODO figure out how to create blockitem item models.
     }
+
+    private void generateTrivialTintedBlock(BlockModelGenerators blockModelGenerators, Block block) {
+        TextureMapping textureMapping = TextureMapping.cube(block);
+
+    }
+
     private void generateFlatItemFromCrossBlock(ItemModelGenerators itemModelGenerator, Item item, Block block) {
         ResourceLocation blockTexture = TextureMapping.getBlockTexture(block);
         ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(item), TextureMapping.layer0(blockTexture), itemModelGenerator.output);
@@ -58,7 +66,14 @@ public class AHModelGenerator extends FabricModelProvider {
         blockModelGenerator.createTrivialCube(AHBlocks.ANOMADIRT.get());
         blockModelGenerator.createTrivialCube(AHBlocks.ANOMASAND.get());
         blockModelGenerator.createTrivialCube(AHBlocks.CHISELED_ANOMASTONE_BRICKS.get());
-        blockModelGenerator.createTrivialCube(AHBlocks.ANOMASNOW_BLOCK.get());
+        blockModelGenerator.createTrivialCube(AHBlocks.ANOMALICE.get());
+        TextureMapping snowBlockMapping = TextureMapping.cube(AstralHorizons.id("block/anomasnow"));
+        blockModelGenerator.createTrivialBlock(AHBlocks.ANOMASNOW_BLOCK.get(), snowBlockMapping, ModelTemplates.CUBE_ALL);
+    }
+
+    private void createCrossBlocks(BlockModelGenerators blockModelGenerators) {
+        blockModelGenerators.createCrossBlock(AHBlocks.SICKENED_SHRUB.get(), BlockModelGenerators.TintState.NOT_TINTED);
+        blockModelGenerators.createCrossBlock(AHBlocks.ANOMALOUS_SHORT_GRASS.get(), BlockModelGenerators.TintState.TINTED);
     }
 
     private void createSandstone(BlockModelGenerators blockModelGenerators) {
@@ -78,7 +93,7 @@ public class AHModelGenerator extends FabricModelProvider {
         createSlabWithDistinctTop(blockModelGenerators, AHBlocks.CUT_ANOMASANDSTONE.get(), AHBlocks.CUT_ANOMASANDSTONE_SLAB.get(),
                 AstralHorizons.id("block/cut_anomasandstone"),
                 getBlockTexture(AHBlocks.ANOMASANDSTONE.get(), "_top"));
-}
+    }
 
     private void createTopBottomWithWallBlock(BlockModelGenerators blockModelGenerators, Block block) {
         // Sandstone like block with top and bottom textures and a wall texture.

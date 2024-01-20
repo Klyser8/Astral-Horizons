@@ -286,18 +286,18 @@ public class AHBlocks {
             new AHDoorBlock(AHBlockSetType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_DOOR)
                     .strength(3.0f)));
-    public static final Supplier<Block> SCURANE_SIGN = registerBlock("scurane_sign", () ->
+/*    public static final Supplier<Block> SCURANE_SIGN = registerBlock("scurane_sign", () ->
             new WallSignBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_SIGN)
-                    .strength(3.0f)));
+                    .strength(3.0f)));*/
 /*    public static final Supplier<Block> SCURANE_WALL_SIGN = registerBlock("scurane_wall_sign", () ->
             new WallSignBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_WALL_SIGN)
                     .strength(3.0f)));*/
-    public static final Supplier<Block> SCURANE_HANGING_SIGN = registerBlock("scurane_hanging_sign", () ->
+/*    public static final Supplier<Block> SCURANE_HANGING_SIGN = registerBlock("scurane_hanging_sign", () ->
             new CeilingHangingSignBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_HANGING_SIGN)
-                    .strength(3.0f)));
+                    .strength(3.0f)));*/
 /*    public static final Supplier<Block> SCURANE_WALL_HANGING_SIGN = registerBlock("scurane_wall_hanging_sign", () ->
             new WallHangingSignBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_WALL_HANGING_SIGN)
@@ -332,8 +332,8 @@ public class AHBlocks {
                         AHBlocks.STRIPPED_SCURANE_WOOD.get(), AHBlocks.SCURANE_LEAVES.get(), AHBlocks.SCURANE_PLANKS.get(),
                         AHBlocks.SCURANE_SLAB.get(), AHBlocks.SCURANE_STAIRS.get(), AHBlocks.SCURANE_FENCE.get(),
                         AHBlocks.SCURANE_FENCE_GATE.get(), AHBlocks.SCURANE_DOOR.get(), AHBlocks.SCURANE_TRAPDOOR.get(),
-                        AHBlocks.SCURANE_PRESSURE_PLATE.get(), AHBlocks.SCURANE_BUTTON.get(), AHBlocks.SCURANE_SIGN.get(),
-                        AHBlocks.SCURANE_HANGING_SIGN.get(), AHBlocks.ANOMALOUS_SHORT_GRASS.get(), AHBlocks.SICKENED_SHRUB.get(),
+                        AHBlocks.SCURANE_PRESSURE_PLATE.get(), AHBlocks.SCURANE_BUTTON.get(),/* AHBlocks.SCURANE_SIGN.get(),*/
+                        /*AHBlocks.SCURANE_HANGING_SIGN.get(),*/ AHBlocks.ANOMALOUS_SHORT_GRASS.get(), AHBlocks.SICKENED_SHRUB.get(),
                         AHBlocks.TEST_TINTED_BLOCK.get()
     };
     }
