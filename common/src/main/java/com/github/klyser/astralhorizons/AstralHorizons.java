@@ -25,6 +25,7 @@ public class AstralHorizons
 		AHItems.init();
 		AHCreativeModeTabs.init();
 		AHSoundEvents.init();
+		AHStructurePlacementType.init();
 	}
 
 	/**

@@ -22,6 +22,8 @@ public class AstralHorizonsForge {
         CommonPlatformHelperImpl.ITEMS.register(bus);
         CommonPlatformHelperImpl.CREATIVE_MODE_TABS.register(bus);
         CommonPlatformHelperImpl.BLOCKS.register(bus);
+        CommonPlatformHelperImpl.SOUND_EVENTS.register(bus);
+        CommonPlatformHelperImpl.STRUCTURE_PLACEMENT_TYPES.register(bus);
         MinecraftForge.EVENT_BUS.register(new ForgeEventListener());
 
         if (FMLEnvironment.dist.isClient()) {

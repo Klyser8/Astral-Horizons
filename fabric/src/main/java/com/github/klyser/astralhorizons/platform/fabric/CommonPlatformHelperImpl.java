@@ -13,6 +13,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
+import net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType;
 
 import java.util.function.Supplier;
 
@@ -35,6 +37,11 @@ public class CommonPlatformHelperImpl {
 
     public static <T extends SoundEvent> Supplier<T> registerSoundEvent(String name, Supplier<T> soundEvent) {
         T registry = Registry.register(BuiltInRegistries.SOUND_EVENT, new ResourceLocation(AstralHorizons.MOD_ID, name), soundEvent.get());
+        return () -> registry;
+    }
+
+    public static <P extends StructurePlacement> Supplier<StructurePlacementType<P>> registerPlacementType(String name, Supplier<StructurePlacementType<P>> placementType) {
+        StructurePlacementType<P> registry = Registry.register(BuiltInRegistries.STRUCTURE_PLACEMENT, new ResourceLocation(AstralHorizons.MOD_ID, name), placementType.get());
         return () -> registry;
     }
 
