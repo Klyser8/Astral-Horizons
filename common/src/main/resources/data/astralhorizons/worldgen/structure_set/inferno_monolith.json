@@ -5,11 +5,13 @@
     "distance": 128,
     "count": 64,
     "spread": 8,
+    "offset_x": 20,
+    "offset_z": -20,
     "preferred_biomes": "#minecraft:is_overworld"
   },
   "structures": [
     {
-      "structure": "astralhorizons:astral_gateway",
+      "structure": "astralhorizons:inferno_monolith",
       "weight": 1
     }
   ]
