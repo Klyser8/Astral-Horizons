@@ -19,10 +19,14 @@ public class ChunkGeneratorStructureStateMixin {
                     "Ljava/util/concurrent/CompletableFuture;"))
     private Supplier<ChunkPos> adjustRingPositions(Supplier<ChunkPos> originalSupplier, @Local(argsOnly = true) ConcentricRingsStructurePlacement structurePlacement) {
         if (structurePlacement instanceof ModifiedConcentricRingsStructurePlacement modifiedStructurePlacement) {
+            if (modifiedStructurePlacement.rotationOffset() == 0
+                    && modifiedStructurePlacement.minDistanceFromOrigin() == 0
+                    && modifiedStructurePlacement.maxDistanceFromOrigin() == 0) {
+                return originalSupplier;
+            }
             return () -> {
                 ChunkPos pos = originalSupplier.get();
-                return new ChunkPos(pos.x + modifiedStructurePlacement.offsetX().orElse(0),
-                        pos.z + modifiedStructurePlacement.offsetZ().orElse(0));
+                return modifiedStructurePlacement.rotateChunkPosAroundCenterChunk(pos);
             };
         }
         return originalSupplier;

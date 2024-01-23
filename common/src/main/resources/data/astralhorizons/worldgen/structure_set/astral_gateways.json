@@ -3,8 +3,8 @@
     "type": "astralhorizons:modified_concentric_rings",
     "salt": 333,
     "distance": 128,
-    "count": 64,
     "spread": 8,
+    "count": 64,
     "preferred_biomes": "#minecraft:is_overworld"
   },
   "structures": [
