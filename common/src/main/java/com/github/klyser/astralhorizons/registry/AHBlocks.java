@@ -15,76 +15,94 @@ public class AHBlocks {
     public static final Supplier<Block> TEST_TINTED_BLOCK = registerBlock("test_tinted_block", () ->
             new Block(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE)
-                    .strength(4.0f, 6.0f)));
-    public static final Supplier<Block> ANOMADIRT = registerBlock("anomadirt", () ->
-            new Block(BlockBehaviour.Properties
+                    .strength(4.0f, 6.0f)
+                    .sound(AHSoundType.ANOMASTONE)));
+    public static final Supplier<AnomalousBlock> ANOMADIRT = registerBlock("anomadirt", () ->
+            new AnomalousBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.DIRT)
-                    .strength(1.0f)));
+                    .strength(1.0f)
+                    .sound(AHSoundType.ANOMADIRT)));
     public static final Supplier<Block> ANOMAGRASS_BLOCK = registerBlock("anomagrass_block", () ->
             new AnomalousGrassBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.GRASS_BLOCK)
-                    .strength(1.0f)));
+                    .strength(1.0f)
+                    .sound(AHSoundType.ANOMAGRASS)));
     public static final Supplier<Block> ANOMASTONE = registerBlock("anomastone", () ->
             new Block(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE)
-                    .strength(4.0f, 6.0f)));
+                    .strength(4.0f, 6.0f)
+                    .sound(AHSoundType.ANOMASTONE)));
     public static final Supplier<Block> LUTIEL = registerBlock("lutiel", () ->
             new AHFallingBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.GRAVEL)
-                    .strength(0.9f)));
+                    .strength(0.9f)
+                    .sound(AHSoundType.LUTIEL)));
     public static final Supplier<Block> ANOMASTONE_SLAB = registerBlock("anomastone_slab", () ->
             new SlabBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_SLAB)
-                    .strength(4.0f, 6.0f)));
+                    .strength(4.0f, 6.0f)
+                    .sound(AHSoundType.ANOMASTONE)));
     public static final Supplier<Block> ANOMASTONE_STAIRS = registerBlock("anomastone_stairs", () ->
             new AHStairBlock(ANOMASTONE.get().defaultBlockState(), BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_STAIRS)
-                    .strength(4.0f, 6.0f)));
+                    .strength(4.0f, 6.0f)
+                    .sound(AHSoundType.ANOMASTONE)));
     public static final Supplier<Block> ANOMASTONE_PRESSURE_PLATE = registerBlock("anomastone_pressure_plate", () ->
             new AHPressurePlateBlock(AHBlockSetType.ANOMASTONE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_PRESSURE_PLATE)
-                    .strength(4.0f, 6.0f)));
+                    .strength(4.0f, 6.0f)
+                    .sound(AHSoundType.ANOMASTONE)));
     public static final Supplier<Block> ANOMASTONE_BUTTON = registerBlock("anomastone_button", () ->
             new AHButtonBlock(AHBlockSetType.ANOMASTONE, 20, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_BUTTON)
-                    .strength(4.0f, 6.0f)));
+                    .strength(4.0f, 6.0f)
+                    .sound(AHSoundType.ANOMASTONE)));
     public static final Supplier<Block> COBBLED_ANOMASTONE = registerBlock("cobbled_anomastone", () ->
             new Block(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.COBBLESTONE)
-                    .strength(4.5f, 6.0f)));
+                    .strength(4.5f, 6.0f)
+                    .sound(AHSoundType.COBBLED_ANOMASTONE)));
     public static final Supplier<Block> COBBLED_ANOMASTONE_SLAB = registerBlock("cobbled_anomastone_slab", () ->
             new SlabBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.COBBLESTONE_SLAB)
-                    .strength(4.5f, 6.0f)));
+                    .strength(4.5f, 6.0f)
+                    .sound(AHSoundType.COBBLED_ANOMASTONE)));
     public static final Supplier<Block> COBBLED_ANOMASTONE_STAIRS = registerBlock("cobbled_anomastone_stairs", () ->
             new AHStairBlock(COBBLED_ANOMASTONE.get().defaultBlockState(), BlockBehaviour.Properties
                     .ofFullCopy(Blocks.COBBLESTONE_STAIRS)
-                    .strength(4.5f, 6.0f)));
+                    .strength(4.5f, 6.0f)
+                    .sound(AHSoundType.COBBLED_ANOMASTONE)));
     public static final Supplier<Block> COBBLED_ANOMASTONE_WALL = registerBlock("cobbled_anomastone_wall", () ->
             new WallBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.COBBLESTONE_WALL)
-                    .strength(4.5f, 6.0f)));
+                    .strength(4.5f, 6.0f)
+                    .sound(AHSoundType.COBBLED_ANOMASTONE)));
     public static final Supplier<Block> ANOMASTONE_BRICKS = registerBlock("anomastone_bricks", () ->
             new AnomalousStoneBricks(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_BRICKS)
-                    .strength(4.0f, 6.0f)));
+                    .strength(4.0f, 6.0f)
+                    .sound(AHSoundType.ANOMASTONE_BRICKS)));
     public static final Supplier<Block> ANOMASTONE_BRICK_SLAB = registerBlock("anomastone_brick_slab", () ->
             new HorizontalDirectionalSlabBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_BRICK_SLAB)
-                    .strength(4.0f, 6.0f)));
+                    .strength(4.0f, 6.0f)
+                    .sound(AHSoundType.ANOMASTONE_BRICKS)));
     public static final Supplier<Block> ANOMASTONE_BRICK_STAIRS = registerBlock("anomastone_brick_stairs", () ->
             new AHStairBlock(ANOMASTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_BRICK_STAIRS)
-                    .strength(4.0f, 6.0f)));
+                    .strength(4.0f, 6.0f)
+                    .sound(AHSoundType.ANOMASTONE_BRICKS)));
     public static final Supplier<Block> ANOMASTONE_BRICK_WALL = registerBlock("anomastone_brick_wall", () ->
             new WallBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE_BRICK_WALL)
                     .forceSolidOn()
-                    .strength(4.0f, 6.0f)));
+                    .strength(4.0f, 6.0f)
+                    .sound(AHSoundType.ANOMASTONE_BRICKS)));
     public static final Supplier<Block> CHISELED_ANOMASTONE_BRICKS = registerBlock("chiseled_anomastone_bricks", () ->
             new Block(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHISELED_STONE_BRICKS)
-                    .strength(4.0f, 6.0f)));
+                    .strength(4.0f, 6.0f)
+                    .sound(AHSoundType.ANOMASTONE_BRICKS)));
     public static final Supplier<Block> CHLORITE = registerBlock("chlorite", () ->
             new Block(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STONE)
@@ -184,7 +202,8 @@ public class AHBlocks {
     public static final Supplier<Block> ANOMASAND = registerBlock("anomasand", () ->
             new AHFallingBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.SAND)
-                    .strength(0.75f)));
+                    .strength(0.75f)
+                    .sound(AHSoundType.ANOMASAND)));
     public static final Supplier<Block> ANOMASANDSTONE = registerBlock("anomasandstone", () ->
             new Block(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.SANDSTONE)
@@ -232,32 +251,39 @@ public class AHBlocks {
     public static final Supplier<Block> SCURANE_LOG = registerBlock("scurane_log", () ->
             new RotatedPillarBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_LOG)
-                    .strength(3.0f)));
+                    .strength(3.0f)
+                    .sound(AHSoundType.SCURANE_WOOD)));
     public static final Supplier<Block> SCURANE_WOOD = registerBlock("scurane_wood", () ->
             new RotatedPillarBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_WOOD)
-                    .strength(3.0f)));
+                    .strength(3.0f)
+                    .sound(AHSoundType.SCURANE_WOOD)));
     public static final Supplier<Block> STRIPPED_SCURANE_LOG = registerBlock("stripped_scurane_log", () ->
             new RotatedPillarBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STRIPPED_CHERRY_LOG)
-                    .strength(3.0f)));
+                    .strength(3.0f)
+                    .sound(AHSoundType.SCURANE_WOOD)));
     public static final Supplier<Block> STRIPPED_SCURANE_WOOD = registerBlock("stripped_scurane_wood", () ->
             new RotatedPillarBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STRIPPED_CHERRY_WOOD)
-                    .strength(3.0f)));
+                    .strength(3.0f)
+                    .sound(AHSoundType.SCURANE_WOOD)));
     public static final Supplier<Block> SCURANE_LEAVES = registerBlock("scurane_leaves", () ->
             new LeavesBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_LEAVES)
                     .strength(0.3f)
-                    .randomTicks()));
+                    .randomTicks()
+                    .sound(AHSoundType.SCURANE_WOOD)));
     public static final Supplier<Block> SCURANE_PLANKS = registerBlock("scurane_planks", () ->
             new Block(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_PLANKS)
-                    .strength(3.0f)));
+                    .strength(3.0f)
+                    .sound(AHSoundType.SCURANE_WOOD)));
     public static final Supplier<Block> SCURANE_SLAB = registerBlock("scurane_slab", () ->
             new SlabBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_SLAB)
-                    .strength(3.0f)));
+                    .strength(3.0f)
+                    .sound(AHSoundType.SCURANE_WOOD)));
     public static final Supplier<Block> SCURANE_STAIRS = registerBlock("scurane_stairs", () ->
             new AHStairBlock(SCURANE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_STAIRS)
@@ -265,27 +291,33 @@ public class AHBlocks {
     public static final Supplier<Block> SCURANE_FENCE = registerBlock("scurane_fence", () ->
             new FenceBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_FENCE)
-                    .strength(3.0f)));
+                    .strength(3.0f)
+                    .sound(AHSoundType.SCURANE_WOOD)));
     public static final Supplier<Block> SCURANE_FENCE_GATE = registerBlock("scurane_fence_gate", () ->
             new FenceGateBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_FENCE_GATE)
-                    .strength(3.0f)));
+                    .strength(3.0f)
+                    .sound(AHSoundType.SCURANE_WOOD)));
     public static final Supplier<Block> SCURANE_BUTTON = registerBlock("scurane_button", () ->
             new AHButtonBlock(AHBlockSetType.SCURANE, 15, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_BUTTON)
-                    .strength(0.75f)));
+                    .strength(0.75f)
+                    .sound(AHSoundType.SCURANE_WOOD)));
     public static final Supplier<Block> SCURANE_PRESSURE_PLATE = registerBlock("scurane_pressure_plate", () ->
             new AHPressurePlateBlock(AHBlockSetType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_PRESSURE_PLATE)
-                    .strength(0.75f)));
+                    .strength(0.75f)
+                    .sound(AHSoundType.SCURANE_WOOD)));
     public static final Supplier<Block> SCURANE_TRAPDOOR = registerBlock("scurane_trapdoor", () ->
             new AHTrapDoorBlock(AHBlockSetType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_TRAPDOOR)
-                    .strength(3.0f)));
+                    .strength(3.0f)
+                    .sound(AHSoundType.SCURANE_WOOD)));
     public static final Supplier<Block> SCURANE_DOOR = registerBlock("scurane_door", () ->
             new AHDoorBlock(AHBlockSetType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_DOOR)
-                    .strength(3.0f)));
+                    .strength(3.0f)
+                    .sound(AHSoundType.SCURANE_WOOD)));
 /*    public static final Supplier<Block> SCURANE_SIGN = registerBlock("scurane_sign", () ->
             new WallSignBlock(AHWoodType.SCURANE, BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_SIGN)
@@ -305,10 +337,12 @@ public class AHBlocks {
     public static final Supplier<Block> ANOMALOUS_SHORT_GRASS = registerBlock("anomalous_short_grass", () ->
             new AnomalousBushBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.SHORT_GRASS)
+                    .sound(AHSoundType.ANOMAGRASS)
                     .strength(0.2f), AHTags.ANOMALOUS_DIRT));
     public static final Supplier<Block> SICKENED_SHRUB = registerBlock("sickened_shrub", () ->
             new AnomalousBushBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.FERN)
+                    .sound(AHSoundType.ANOMAGRASS)
                     .strength(0.2f), AHTags.ANOMALOUS_DIRT));
 
     public static Block[] getAnomalousTintedBlocks() {
