@@ -5,6 +5,7 @@ dependencies {
     modImplementation "software.bernie.geckolib:geckolib-fabric-${project.minecraft_version}:${project.geckolib_version}"
     modImplementation "net.tslat.smartbrainlib:SmartBrainLib-fabric-${project.minecraft_version}:${project.sbl_version}"
     modImplementation 'com.github.glitchfiend:TerraBlender-fabric:' + minecraft_version + '-' + terrablender_version
+    include(modImplementation("de.dafuqs.revelationary:Revelationary:${project.revelationary_version}+${project.minecraft_version}"))
 }
 
 loom {

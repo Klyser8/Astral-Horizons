@@ -49,6 +49,7 @@ allprojects {
             name = 'Terrablender'
             url = ''
         }
+        mavenLocal()
     }
 
     tasks.withType(JavaCompile) {

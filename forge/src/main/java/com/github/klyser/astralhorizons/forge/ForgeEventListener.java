@@ -1,6 +1,7 @@
 package com.github.klyser.astralhorizons.forge;
 
 import com.github.klyser.astralhorizons.platform.AHEventListenerHelper;
+import de.dafuqs.revelationary.api.revelations.RevelationAware;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
