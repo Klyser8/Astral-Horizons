@@ -4,7 +4,7 @@
   "package": "com.github.klyser.astralhorizons.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "AllowEquilateralTriadStructurePlacementInChunKGeneratorMixin",
+    "AllowEquilateralTriadStructurePlacementInChunkGeneratorMixin",
     "AwardAdvancementPostDragonDeathMixin",
     "ChunkGeneratorStructureStateMixin",
     "InvokeRegisterWoodTypeMixin"

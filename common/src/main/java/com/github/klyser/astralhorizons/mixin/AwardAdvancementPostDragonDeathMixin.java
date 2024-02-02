@@ -21,7 +21,6 @@ public abstract class AwardAdvancementPostDragonDeathMixin extends Mob {
             target = "Lnet/minecraft/world/entity/boss/enderdragon/EnderDragon;" +
                     "gameEvent(Lnet/minecraft/world/level/gameevent/GameEvent;)V"))
     private void postDragonDeath(CallbackInfo ci) {
-        MixinCallbacks.awardAdvancementPostDragonDeathCallback(level());
-        MixinCallbacks.updateDragonStatusForClientsCallback(level());
+        MixinCallbacks.handleDragonDeathCallback(level());
     }
 }

@@ -3,7 +3,6 @@ package com.github.klyser.astralhorizons.forge;
 import com.github.klyser.astralhorizons.AstralHorizons;
 import com.github.klyser.astralhorizons.forge.client.AstralHorizonsForgeClient;
 import com.github.klyser.astralhorizons.platform.forge.CommonPlatformHelperImpl;
-import de.dafuqs.revelationary.api.revelations.RevelationAware;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -29,8 +28,7 @@ public class AstralHorizonsForge {
 
         if (FMLEnvironment.dist.isClient()) {
             AstralHorizonsForgeClient.subscribeClientEvents();
-        }
-        bus.addListener(this::commonSetup);
+        }        bus.addListener(this::commonSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

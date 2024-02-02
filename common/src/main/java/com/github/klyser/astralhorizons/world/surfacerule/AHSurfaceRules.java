@@ -35,8 +35,8 @@ public class AHSurfaceRules {
                             SurfaceRules.ifTrue(
                                     ABOVE_Y_0, SurfaceRules.ifTrue(
                                             IN_WATER, SurfaceRules.sequence(
-                                                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(AHBlocks.ANOMADIRT.get().defaultBlockState())), //TODO add sand disk features.
-                                                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(AHBlocks.ANOMADIRT.get().defaultBlockState()))
+                                                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(AHBlocks.LUTIEL.get().defaultBlockState())),
+                                                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(AHBlocks.LUTIEL.get().defaultBlockState()))
                                             )
                                     )
                             ),
@@ -67,7 +67,10 @@ public class AHSurfaceRules {
             SurfaceRules.ifTrue(SurfaceRules.isBiome(AHBiomes.ANOMALOUS_RIVER), SurfaceRules.sequence(
                     SurfaceRules.ifTrue(
                             ABOVE_BOTTOM_OF_OCEAN, SurfaceRules.sequence(
-                                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(AHBlocks.ANOMADIRT.get().defaultBlockState())),
+                                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.sequence(
+                                            SurfaceRules.ifTrue(IN_WATER, SurfaceRules.state(AHBlocks.ANOMADIRT.get().defaultBlockState())),
+                                            SurfaceRules.ifTrue(SurfaceRules.not(IN_WATER), SurfaceRules.state(AHBlocks.ANOMAGRASS_BLOCK.get().defaultBlockState()))
+                                    )),
                                     SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(AHBlocks.ANOMADIRT.get().defaultBlockState())),
                                     SurfaceRules.ifTrue(SurfaceRules.DEEP_UNDER_FLOOR, SurfaceRules.state(AHBlocks.ANOMASTONE.get().defaultBlockState())),
                                     SurfaceRules.ifTrue(SurfaceRules.VERY_DEEP_UNDER_FLOOR, SurfaceRules.state(AHBlocks.ANOMASTONE.get().defaultBlockState()))

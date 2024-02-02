@@ -1,7 +1,7 @@
 package com.github.klyser.astralhorizons.forge;
 
 import com.github.klyser.astralhorizons.AstralHorizons;
-import com.github.klyser.astralhorizons.client.ClientPacketData;
+import com.github.klyser.astralhorizons.network.AHPacketData;
 import com.github.klyser.astralhorizons.network.EnderDragonStatusPacket;
 import net.minecraftforge.network.ChannelBuilder;
 import net.minecraftforge.network.SimpleChannel;
@@ -18,7 +18,7 @@ public class AHForgePacketHandler {
         INSTANCE.messageBuilder(EnderDragonStatusPacket.class, id)
                 .decoder(EnderDragonStatusPacket::fromBytes)
                 .encoder(EnderDragonStatusPacket::toBytes)
-                .consumerMainThread((msg, ctx) -> ClientPacketData.handleDragonStatus(msg))
+                .consumerMainThread((msg, ctx) -> AHPacketData.handleDragonStatus(msg))
                 .add();
     }
 

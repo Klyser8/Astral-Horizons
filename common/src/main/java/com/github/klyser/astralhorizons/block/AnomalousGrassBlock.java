@@ -2,12 +2,15 @@ package com.github.klyser.astralhorizons.block;
 
 import com.github.klyser.astralhorizons.registry.AHBlocks;
 import com.mojang.serialization.MapCodec;
+import de.dafuqs.revelationary.api.revelations.RevelationAware;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.Tuple;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.SpreadingSnowyDirtBlock;
@@ -15,16 +18,22 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.lighting.LightEngine;
 import org.jetbrains.annotations.NotNull;
 
-public class AnomalousGrassBlock extends SpreadingSnowyDirtBlock {
-    public static final MapCodec<AnomalousGrassBlock> CODEC = simpleCodec(AnomalousGrassBlock::new);
-    public AnomalousGrassBlock(Properties properties) {
+import java.util.Hashtable;
+import java.util.Map;
+
+public class AnomalousGrassBlock extends SpreadingSnowyDirtBlock implements CloakedBlock {
+    protected final Block cloakBlock;
+    public static final MapCodec<AnomalousGrassBlock> CODEC = simpleCodec(properties -> new AnomalousGrassBlock(properties, Blocks.GRASS_BLOCK));
+    public AnomalousGrassBlock(Properties properties, Block cloakBlock) {
         super(properties);
+        this.cloakBlock = cloakBlock;
+        RevelationAware.register(this);
     }
 
     private static boolean canBeGrass(BlockState state, LevelReader levelReader, BlockPos pos) {
         BlockPos blockPos = pos.above();
         BlockState blockState = levelReader.getBlockState(blockPos);
-        if (blockState.is(Blocks.SNOW) && blockState.getValue(SnowLayerBlock.LAYERS) == 1) {
+        if ((blockState.is(Blocks.SNOW)) && blockState.getValue(SnowLayerBlock.LAYERS) == 1) {
             return true;
         }
         if (blockState.getFluidState().getAmount() == 8) {
@@ -44,6 +53,7 @@ public class AnomalousGrassBlock extends SpreadingSnowyDirtBlock {
         return CODEC;
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (!AnomalousGrassBlock.canBeGrass(state, level, pos)) {
@@ -58,5 +68,19 @@ public class AnomalousGrassBlock extends SpreadingSnowyDirtBlock {
                 level.setBlockAndUpdate(blockPos, blockState.setValue(SNOWY, level.getBlockState(blockPos.above()).is(Blocks.SNOW)));
             }
         }
+    }
+
+
+    @Override
+    public Tuple<Block, Block> getBlockTuple() {
+        return new Tuple<>(this, cloakBlock);
+    }
+
+    @Override
+    public Map<BlockState, BlockState> getBlockStateCloaks() {
+        Map<BlockState, BlockState> cloaks = new Hashtable<>();
+        cloaks.put(defaultBlockState().setValue(SNOWY, true), cloakBlock.defaultBlockState().setValue(SNOWY, true));
+        cloaks.put(defaultBlockState(), cloakBlock.defaultBlockState());
+        return cloaks;
     }
 }

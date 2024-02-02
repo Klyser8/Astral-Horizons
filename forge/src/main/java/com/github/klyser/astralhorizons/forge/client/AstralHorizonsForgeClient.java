@@ -20,7 +20,7 @@ public class AstralHorizonsForgeClient {
     }
 
     private static void registerBlockColors(final RegisterColorHandlersEvent.Block event) {
-        event.register(AstralHorizonsClient.registerBlockColors(), AHBlocks.getAnomalousTintedBlocks());
+        event.register(AstralHorizonsClient.registerBlockColors(), AHBlocks.getAHTintedBlocks());
     }
 
 }

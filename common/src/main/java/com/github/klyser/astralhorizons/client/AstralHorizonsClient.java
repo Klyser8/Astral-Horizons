@@ -1,9 +1,13 @@
 package com.github.klyser.astralhorizons.client;
 
+import com.github.klyser.astralhorizons.block.AnomalousGrassBlock;
+import com.github.klyser.astralhorizons.network.AHPacketData;
 import com.github.klyser.astralhorizons.platform.ClientPlatformHelper;
 import com.github.klyser.astralhorizons.registry.AHBlocks;
 import net.minecraft.client.color.block.BlockColor;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.level.GrassColor;
 
 public class AstralHorizonsClient {
 
@@ -17,14 +21,19 @@ public class AstralHorizonsClient {
 
     public static BlockColor registerBlockColors() {
         return (blockState, blockAndTintGetter, blockPos, tintIndex) -> {
-            if (blockAndTintGetter == null || blockPos == null) {
-                return 0xAAAAAA;
+
+            if (blockState.getBlock() instanceof AnomalousGrassBlock) {
+                if (blockAndTintGetter == null || blockPos == null) {
+                    return GrassColor.getDefaultColor();
+                }
+                if (AHPacketData.wasDragonSlainOnce()) {
+                    return 6846678;
+                } else {
+                    return BiomeColors.getAverageGrassColor(blockAndTintGetter, blockPos);
+                }
             }
-            if (ClientPacketData.isDragonDead()) {
-                return 0x444444;
-            } else {
-                return 0xFFFFFF;
-            }
+
+            return 0xFFFFFF;
         };
     }
 }

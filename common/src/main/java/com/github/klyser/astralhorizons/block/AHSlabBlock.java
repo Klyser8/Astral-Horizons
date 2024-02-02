@@ -1,19 +1,19 @@
 package com.github.klyser.astralhorizons.block;
 
-import de.dafuqs.revelationary.api.revelations.RevelationAware;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.SlabType;
 
 import java.util.Hashtable;
 import java.util.Map;
 
-public class AnomalousBlock extends Block implements CloakedBlock {
+public class AHSlabBlock extends SlabBlock implements CloakedBlock {
     protected final Block cloakBlock;
-    public AnomalousBlock(Properties properties, Block cloakBlock) {
+    public AHSlabBlock(Properties properties, Block cloakBlock) {
         super(properties);
         this.cloakBlock = cloakBlock;
-        RevelationAware.register(this);
     }
 
     @Override
@@ -24,7 +24,9 @@ public class AnomalousBlock extends Block implements CloakedBlock {
     @Override
     public Map<BlockState, BlockState> getBlockStateCloaks() {
         Map<BlockState, BlockState> cloaks = new Hashtable<>();
-        cloaks.put(defaultBlockState(), cloakBlock.defaultBlockState());
+        for (SlabType slabType : SlabType.values()) {
+            cloaks.put(defaultBlockState().setValue(TYPE, slabType), cloakBlock.defaultBlockState().setValue(TYPE, slabType));
+        }
         return cloaks;
     }
 }

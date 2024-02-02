@@ -8,8 +8,8 @@
     "fog_color": 8090289,
     "water_color": 8090289,
     "water_fog_color": 8157330,
-    "grass_color": 7102623,
-    "foliage_color": 10395294,
+    "grass_color": 5813590,
+    "foliage_color": 5813590,
     "music": {
       "sound": "astralhorizons:astral_anomaly_surface",
       "min_delay": 12000,
