@@ -21,6 +21,7 @@ public class AstralHorizons
 		AHCreativeModeTabs.init();
 		AHSoundEvents.init();
 		AHStructurePlacementType.init();
+		AHFeatures.init();
 	}
 
 	public static void initTerrablender() {

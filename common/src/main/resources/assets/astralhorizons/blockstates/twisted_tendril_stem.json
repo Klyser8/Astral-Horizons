@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "astralhorizons:block/twisted_tendril_stem"
+      },
+      {
+        "model": "astralhorizons:block/twisted_tendril_stem",
+        "x": 180
+      }
+    ]
+  }
+}

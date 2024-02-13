@@ -28,6 +28,7 @@ public class AHCreativeModeTabs {
                     .title(Component.translatable("itemGroup." + AstralHorizons.MOD_ID + ".blocks"))
                     .icon(() -> AHItems.ANOMADIRT.get().getDefaultInstance())
                     .displayItems((features, entries) -> {
+                        entries.accept(AHItems.STARFLARE_BLOSSOM.get());
                         entries.accept(AHItems.ANOMADIRT.get());
                         entries.accept(AHItems.ANOMAGRASS_BLOCK.get());
                         entries.accept(AHItems.ANOMASTONE.get());
@@ -99,6 +100,7 @@ public class AHCreativeModeTabs {
 //                        entries.accept(AHItems.SCURANE_HANGING_SIGN.get());
                         entries.accept(AHItems.ANOMALOUS_SHORT_GRASS.get());
                         entries.accept(AHItems.SICKENED_SHRUB.get());
+                        entries.accept(AHItems.ANOMALOUS_SEAGRASS.get());
                     }).build()
     );
 

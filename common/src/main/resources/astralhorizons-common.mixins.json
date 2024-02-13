@@ -7,6 +7,7 @@
     "AllowEquilateralTriadStructurePlacementInChunkGeneratorMixin",
     "AwardAdvancementPostDragonDeathMixin",
     "ChunkGeneratorStructureStateMixin",
+    "InjectBoneMealUsageInAnomalousBiomes",
     "InvokeRegisterWoodTypeMixin"
   ],
   "client": [

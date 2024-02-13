@@ -24,16 +24,16 @@ public class AstralHorizonsServerData extends SavedData {
                 AstralHorizons.MOD_ID);
     }
 
-    public static AstralHorizonsServerData load(CompoundTag compoundTag) {
+    private static AstralHorizonsServerData load(CompoundTag compoundTag) {
         boolean dragonSlainOnce = compoundTag.getBoolean(DRAGON_SLAIN_KEY);
         return new AstralHorizonsServerData(dragonSlainOnce);
     }
 
-    public static AstralHorizonsServerData create() {
+    private static AstralHorizonsServerData create() {
         return new AstralHorizonsServerData(false);
     }
 
-    public AstralHorizonsServerData(boolean dragonSlainOnce) {
+    private AstralHorizonsServerData(boolean dragonSlainOnce) {
         this.dragonSlainOnce = dragonSlainOnce;
     }
 

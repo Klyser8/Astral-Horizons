@@ -8,6 +8,8 @@ import net.minecraftforge.network.SimpleChannel;
 
 public class AHForgePacketHandler {
 
+    private AHForgePacketHandler() {}
+
     private static final int PROTOCOL_VERSION = 1;
     public static final SimpleChannel INSTANCE = ChannelBuilder.named(AstralHorizons.id("main"))
             .networkProtocolVersion(PROTOCOL_VERSION)

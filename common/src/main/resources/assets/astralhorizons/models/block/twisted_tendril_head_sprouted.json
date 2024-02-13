@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "astralhorizons:block/twisted_tendril_head_sprouted"
+  }
+}

@@ -16,8 +16,8 @@ public record EnderDragonStatusPacket(boolean dragonDefeatedOnce) implements AHP
         buffer.writeBoolean(dragonDefeatedOnce);
     }
 
-    public static EnderDragonStatusPacket fromBytes(FriendlyByteBuf buf) {
-        boolean dragonDefeated = buf.readBoolean();
+    public static EnderDragonStatusPacket fromBytes(FriendlyByteBuf buffer) {
+        boolean dragonDefeated = buffer.readBoolean();
         return new EnderDragonStatusPacket(dragonDefeated);
     }
 }

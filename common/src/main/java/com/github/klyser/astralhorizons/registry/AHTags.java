@@ -17,7 +17,8 @@ public class AHTags {
     public static final TagKey<Block> WALLS = TagKey.create(Registries.BLOCK, new ResourceLocation("minecraft:walls"));
 
     //ASTRAL HORIZONS - BLOCKS
-    public static final TagKey<Block> ANOMALOUS_DIRT = TagKey.create(Registries.BLOCK, new ResourceLocation("astral_horizons:is_anomalous_dirt"));
+    public static final TagKey<Block> ANOMALOUS_DIRT = TagKey.create(Registries.BLOCK, AstralHorizons.id("is_anomalous_dirt"));
+    public static final TagKey<Block> ANOMALOUS_VEGETATION = TagKey.create(Registries.BLOCK, AstralHorizons.id("is_anomalous_vegetation"));
 
     //ASTRAL HORIZONS - BIOMES
     public static final TagKey<Biome> IS_ANOMALOUS = TagKey.create(Registries.BIOME, AstralHorizons.id("is_anomalous"));

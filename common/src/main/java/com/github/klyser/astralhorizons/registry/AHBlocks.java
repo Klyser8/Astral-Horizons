@@ -1,8 +1,10 @@
 package com.github.klyser.astralhorizons.registry;
 
 import com.github.klyser.astralhorizons.block.*;
+import com.github.klyser.astralhorizons.block.vegetation.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.PushReaction;
 
 import java.util.function.Supplier;
 
@@ -344,10 +346,38 @@ public class AHBlocks {
                     .ofFullCopy(Blocks.FERN)
                     .sound(AHSoundType.ANOMAGRASS)
                     .strength(0.2f), AHTags.ANOMALOUS_DIRT)); //TODO implement
+    public static final Supplier<Block> TWISTED_TENDRIL_STEM = registerBlock("twisted_tendril_stem", () ->
+            new TwistedTendrilStemBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.BIG_DRIPLEAF_STEM)
+                    .noCollission()
+                    .pushReaction(PushReaction.DESTROY)
+                    .sound(AHSoundType.ANOMAGRASS)
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .strength(0.4f), Blocks.KELP_PLANT));
+    public static final Supplier<Block> TWISTED_TENDRIL_HEAD = registerBlock("twisted_tendril_head", () ->
+            new TwistedTendrilHeadBlock(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.BIG_DRIPLEAF)
+                    .noCollission()
+                    .pushReaction(PushReaction.DESTROY)
+                    .sound(AHSoundType.ANOMAGRASS)
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .lightLevel(TwistedTendrilHeadBlock.emission(10))
+                    .strength(0.4f), Blocks.KELP));
+    public static final Supplier<Block> ANOMALOUS_SEAGRASS = registerBlock("anomalous_seagrass", () ->
+            new AnomalousSeagrass(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.SEAGRASS)
+                    .strength(0.4f), Blocks.SEAGRASS));
+    public static final Supplier<Block> ANOMALOUS_TALL_SEAGRASS = registerBlock("anomalous_tall_seagrass", () ->
+            new AnomalousTallSeagrass(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.TALL_SEAGRASS)
+                    .strength(0.4f), Blocks.TALL_SEAGRASS));
 
     public static Block[] getAHTintedBlocks() {
         return new Block[] {
-                AHBlocks.ANOMAGRASS_BLOCK.get()
+                AHBlocks.ANOMAGRASS_BLOCK.get(),
+                AHBlocks.ANOMALOUS_SHORT_GRASS.get(),
+                AHBlocks.SICKENED_SHRUB.get(),
+                AHBlocks.SCURANE_LEAVES.get(),
         };
     }
 

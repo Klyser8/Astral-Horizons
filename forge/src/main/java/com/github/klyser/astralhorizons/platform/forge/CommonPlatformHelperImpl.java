@@ -10,6 +10,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType;
 import net.minecraftforge.fml.common.Mod;
@@ -32,6 +34,8 @@ public class CommonPlatformHelperImpl {
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, AstralHorizons.MOD_ID);
     public static final DeferredRegister<StructurePlacementType<?>> STRUCTURE_PLACEMENT_TYPES =
             DeferredRegister.create(Registries.STRUCTURE_PLACEMENT, AstralHorizons.MOD_ID);
+    public static final DeferredRegister<Feature<?>> FEATURES =
+            DeferredRegister.create(Registries.FEATURE, AstralHorizons.MOD_ID);
 
     public static <T extends Item> Supplier<T> registerItem(String name, Supplier<T> item) {
         return ITEMS.register(name, item);
@@ -55,6 +59,10 @@ public class CommonPlatformHelperImpl {
 
     public static void sendPacketToClient(AHPacket packet, ResourceLocation channel, ServerPlayer player) {
         AHForgePacketHandler.INSTANCE.send(packet, PacketDistributor.PLAYER.with(player));
+    }
+
+    public static <T extends FeatureConfiguration> Supplier<Feature<T>> registerFeature(String name, Supplier<Feature<T>> feature) {
+        return FEATURES.register(name, feature);
     }
 
 }

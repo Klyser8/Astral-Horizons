@@ -1,6 +1,5 @@
 package com.github.klyser.astralhorizons.fabric.datagen.builder;
 
-import com.github.klyser.astralhorizons.registry.AHBlocks;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.world.level.block.Block;
 
@@ -35,11 +34,6 @@ public class AHWoodBuilder extends AHBlockFamilyBuilder {
 
     public AHWoodBuilder withTrapdoor(Block trapdoorBlock) {
         blockModelGenerator.createTrapdoor(trapdoorBlock);
-        return this;
-    }
-
-    public AHWoodBuilder withLeaves(Block leavesBlock) {
-        blockModelGenerator.createTrivialCube(leavesBlock);
         return this;
     }
 

@@ -23,7 +23,9 @@
   "features": [
     [],
     [],
-    [],
+    [
+      "astralhorizons:anomastone_boulder"
+    ],
     [],
     [],
     [],

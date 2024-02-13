@@ -15,8 +15,8 @@ public class AstralHorizonsFabricClient implements ClientModInitializer {
         registerBlockColors();
 
         ClientPlayNetworking.registerGlobalReceiver(EnderDragonStatusPacket.ID,
-                (client, handler, buf, responseSender) ->
-                        client.execute(() -> AHPacketData.setDragonDead(buf.readBoolean())));
+                (client, handler, buffer, responseSender) ->
+                        client.execute(() -> AHPacketData.setDragonDead(buffer.readBoolean())));
     }
 
     public static void registerBlockColors() {

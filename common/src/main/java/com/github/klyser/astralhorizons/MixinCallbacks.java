@@ -3,11 +3,15 @@ package com.github.klyser.astralhorizons;
 import com.github.klyser.astralhorizons.data.AstralHorizonsServerData;
 import com.github.klyser.astralhorizons.network.EnderDragonStatusPacket;
 import com.github.klyser.astralhorizons.platform.CommonPlatformHelper;
+import com.github.klyser.astralhorizons.registry.AHBlocks;
+import com.github.klyser.astralhorizons.registry.AHTags;
 import com.github.klyser.astralhorizons.util.AdvancementUtil;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 
 public class MixinCallbacks {
 
@@ -34,6 +38,14 @@ public class MixinCallbacks {
                 CommonPlatformHelper.sendPacketToClient(new EnderDragonStatusPacket(true), EnderDragonStatusPacket.ID, player);
                 AdvancementUtil.completeAdvancement(player, advancementRL, "tick");
             }
+        }
+    }
+
+    public static Block checkBoneMealBiome(Block original, Level level, BlockPos pos) {
+        if (level.getBiome(pos).is(AHTags.IS_ANOMALOUS)) {
+            return AHBlocks.ANOMALOUS_SEAGRASS.get();
+        } else {
+            return original;
         }
     }
 

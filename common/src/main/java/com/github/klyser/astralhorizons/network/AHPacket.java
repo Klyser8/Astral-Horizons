@@ -7,6 +7,6 @@ import net.minecraft.network.FriendlyByteBuf;
  */
 public interface AHPacket {
 
-    void toBytes(FriendlyByteBuf buf);
+    void toBytes(FriendlyByteBuf buffer);
 
 }

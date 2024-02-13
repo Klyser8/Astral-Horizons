@@ -24,6 +24,7 @@ public class AHBlockTagGenerator extends FabricTagProvider.BlockTagProvider {
         addHoeTags();
         addAnomalousDirtTag();
         addWallTags();
+        addAnomalousVegetationTag();
     }
 
     private void addPickaxeTags() {
@@ -109,5 +110,11 @@ public class AHBlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(AHBlocks.ANOMADIRT.get())
                 .add(AHBlocks.ANOMAGRASS_BLOCK.get())
         ;
+    }
+    private void addAnomalousVegetationTag() {
+        getOrCreateTagBuilder(ANOMALOUS_VEGETATION)
+                .add(AHBlocks.ANOMALOUS_SHORT_GRASS.get())
+                .add(AHBlocks.SICKENED_SHRUB.get())
+                .add(AHBlocks.SCURANE_LEAVES.get());
     }
 }

@@ -24,11 +24,15 @@ public class AstralHorizonsForge {
         CommonPlatformHelperImpl.BLOCKS.register(bus);
         CommonPlatformHelperImpl.SOUND_EVENTS.register(bus);
         CommonPlatformHelperImpl.STRUCTURE_PLACEMENT_TYPES.register(bus);
+        CommonPlatformHelperImpl.FEATURES.register(bus);
         MinecraftForge.EVENT_BUS.register(new ForgeEventListener());
 
         if (FMLEnvironment.dist.isClient()) {
             AstralHorizonsForgeClient.subscribeClientEvents();
-        }        bus.addListener(this::commonSetup);
+        }
+        bus.addListener(this::commonSetup);
+        for(var feature : CommonPlatformHelperImpl.FEATURES.getEntries())
+            AstralHorizons.LOGGER.info("feature: " + feature.getId());
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

@@ -13,6 +13,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType;
 
@@ -49,9 +51,14 @@ public class CommonPlatformHelperImpl {
      * Send a packet to a client.
      */
     public static void sendPacketToClient(AHPacket packet, ResourceLocation channel, ServerPlayer player) {
-        FriendlyByteBuf buf = PacketByteBufs.create();
-        packet.toBytes(buf);
-        ServerPlayNetworking.send(player, channel, buf);
+        FriendlyByteBuf buffer = PacketByteBufs.create();
+        packet.toBytes(buffer);
+        ServerPlayNetworking.send(player, channel, buffer);
+    }
+
+    public static <T extends FeatureConfiguration> Supplier<Feature<T>> registerFeature(String name, Supplier<Feature<T>> feature) {
+        Feature<T> registry = Registry.register(BuiltInRegistries.FEATURE, AstralHorizons.id(name), feature.get());
+        return () -> registry;
     }
 
 }

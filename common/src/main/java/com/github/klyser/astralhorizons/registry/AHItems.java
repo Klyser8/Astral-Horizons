@@ -3,6 +3,7 @@ package com.github.klyser.astralhorizons.registry;
 import com.github.klyser.astralhorizons.platform.CommonPlatformHelper;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Rarity;
 
 import java.util.function.Supplier;
@@ -14,11 +15,11 @@ public class AHItems {
     public static final Supplier<Item> COSMIC_CRYSTAL = CommonPlatformHelper.registerItem(
             "cosmic_crystal", () -> new Item(new Item.Properties()
                     .rarity(Rarity.UNCOMMON)));
+    public static final Supplier<Item> STARFLARE_BLOSSOM = CommonPlatformHelper.registerItem(
+            "starflare_blossom", () -> new ItemNameBlockItem(AHBlocks.TWISTED_TENDRIL_HEAD.get(), new Item.Properties()));
 
     // ---- BLOCKS ----
 
-    public static final Supplier<Item> TEST_TINTED_BLOCK = CommonPlatformHelper.registerItem(
-            "test_tinted_block", () -> new BlockItem(AHBlocks.TEST_TINTED_BLOCK.get(), new Item.Properties()));
     public static final Supplier<Item> ANOMADIRT = CommonPlatformHelper.registerItem(
             "anomadirt", () -> new BlockItem(AHBlocks.ANOMADIRT.get(), new Item.Properties()));
     public static final Supplier<Item> ANOMAGRASS_BLOCK = CommonPlatformHelper.registerItem(
@@ -161,6 +162,6 @@ public class AHItems {
             "anomalous_short_grass", () -> new BlockItem(AHBlocks.ANOMALOUS_SHORT_GRASS.get(), new Item.Properties()));
     public static final Supplier<Item> SICKENED_SHRUB = CommonPlatformHelper.registerItem(
             "sickened_shrub", () -> new BlockItem(AHBlocks.SICKENED_SHRUB.get(), new Item.Properties()));
-
-
+    public static final Supplier<Item> ANOMALOUS_SEAGRASS = CommonPlatformHelper.registerItem(
+            "anomalous_seagrass", () -> new BlockItem(AHBlocks.ANOMALOUS_SEAGRASS.get(), new Item.Properties()));
 }

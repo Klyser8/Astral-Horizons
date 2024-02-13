@@ -17,7 +17,7 @@
         "y": 270
       }
     ],
-    "dragon_defeated=true, snowy=true": {
+    "snowy=true": {
       "model": "astralhorizons:block/anomagrass_block_snow"
     }
   }
