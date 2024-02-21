@@ -39,7 +39,8 @@ public class SimpleTreeFeature extends Feature<SimpleTreeFeatureConfig> {
         Rotation rotation = config.randomRotation() ? Rotation.values()[random.nextInt(Rotation.values().length)] : Rotation.NONE;
         int trunkLength = config.trunkLength().sample(random);
 
-        origin = origin.offset(0, trunkLength, 0);
+        // Origin = where the game picked to generate the tree.
+        origin = origin.offset(0, trunkLength, 0); //
         StructureTemplateManager templateManager = level.getLevel().getServer().getStructureManager();
         StructureTemplate template = templateManager.getOrCreate(crown);
         ChunkPos chunkPos = new ChunkPos(origin);
@@ -53,20 +54,21 @@ public class SimpleTreeFeature extends Feature<SimpleTreeFeatureConfig> {
                 chunkPos.getMaxBlockZ() + 16
         );
 
-        StructurePlaceSettings placeSettings = new StructurePlaceSettings().setBoundingBox(boundingBox).setRandom(random);
-        Vec3i size = template.getSize();
-        BlockPos centerPos = origin.offset(-size.getX() / 2, 0, -size.getZ() / 2);
-        BlockPos offsetPos = template.getZeroPositionWithTransform(centerPos.atY(origin.getY()), mirror, rotation);
+        StructurePlaceSettings placeSettings = new StructurePlaceSettings()
+                .setBoundingBox(boundingBox)
+                .setRandom(random);
 
+        BlockPos.MutableBlockPos trunkPos = findCrownConnector(origin, template, placeSettings).mutable(); //Offset the origin by the trunkpos?
+        int xOffset = origin.getX() - trunkPos.getX();
+        int zOffset = origin.getZ() - trunkPos.getZ();
 
-        BlockPos.MutableBlockPos trunkPos = findCrownConnector(offsetPos, template, placeSettings).mutable();
-//        trunkPos = template.getZeroPositionWithTransform(trunkPos, mirror, rotation).mutable();
-//        level.setBlock(trunkPos, config.trunkProvider().getState(random, trunkPos), Block.UPDATE_ALL);
-        template.placeInWorld(level, offsetPos, offsetPos, placeSettings, random, Block.UPDATE_ALL);
+        BlockPos centerPos = origin.offset(xOffset, 0, zOffset);
+        placeSettings.setRotationPivot(new BlockPos(-xOffset, 0, -zOffset)).setRotation(rotation);
+        template.placeInWorld(level, centerPos, centerPos, placeSettings, random, Block.UPDATE_ALL);
         do {
-            level.setBlock(trunkPos, config.trunkProvider().getState(random, trunkPos), Block.UPDATE_ALL);
-            trunkPos.move(Direction.DOWN);
-        } while (!level.getBlockState(trunkPos).canOcclude() && trunkPos.getY() > -63);
+            level.setBlock(origin, config.trunkProvider().getState(random, origin), Block.UPDATE_ALL);
+            origin = origin.below();
+        } while (!level.getBlockState(origin).canOcclude() && origin.getY() > -63);
         return true;
     }
 

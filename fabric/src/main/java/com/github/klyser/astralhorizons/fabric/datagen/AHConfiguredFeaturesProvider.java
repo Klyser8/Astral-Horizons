@@ -4,10 +4,9 @@ import com.github.klyser.astralhorizons.registry.AHBlocks;
 import com.github.klyser.astralhorizons.registry.AHFeatures;
 import com.github.klyser.astralhorizons.world.feature.config.BoulderFeatureConfig;
 import com.github.klyser.astralhorizons.world.feature.config.SimpleTreeFeatureConfig;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
-import net.minecraft.resources.ResourceKey;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
@@ -17,6 +16,8 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.DiskConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
@@ -25,18 +26,12 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTes
 import java.util.List;
 
 import static com.github.klyser.astralhorizons.AstralHorizons.id;
+import static com.github.klyser.astralhorizons.registry.AHConfiguredFeatures.*;
 
-public class AHConfiguredFeatures {
-
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SCURANE_TREE = ResourceKey.create(Registries.CONFIGURED_FEATURE, id("scurane_tree"));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ANOMASTONE_BOULDER = ResourceKey.create(Registries.CONFIGURED_FEATURE, id("anomastone_boulder"));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_ANOMASAND = ResourceKey.create(Registries.CONFIGURED_FEATURE, id("disk_anomasand"));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_LUTIEL = ResourceKey.create(Registries.CONFIGURED_FEATURE, id("disk_lutiel"));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> AURANITE_ORE = ResourceKey.create(Registries.CONFIGURED_FEATURE, id("ore_auranite"));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CHLORITE_ORE = ResourceKey.create(Registries.CONFIGURED_FEATURE, id("ore_chlorite"));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SIDEROCK_ORE = ResourceKey.create(Registries.CONFIGURED_FEATURE, id("ore_siderock"));
+public class AHConfiguredFeaturesProvider {
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+        registerSingleAnomalousGrass(context);
         registerScuraneTree(context);
         registerAnomastoneBoulder(context);
         registerAnomasandDisk(context);
@@ -44,8 +39,14 @@ public class AHConfiguredFeatures {
         registerAuraniteOre(context);
         registerChloriteOre(context);
         registerSiderockOre(context);
+        registerAnomalousShortGrassPatch(context);
     }
 
+    private static void registerSingleAnomalousGrass(BootstapContext<ConfiguredFeature<?, ?>> context) {
+        FeatureUtils.register(context, SINGLE_ANOMALOUS_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
+                BlockStateProvider.simple(AHBlocks.ANOMALOUS_SHORT_GRASS.get())
+        ));
+    }
     private static void registerAnomastoneBoulder(BootstapContext<ConfiguredFeature<?, ?>> context) {
         FeatureUtils.register(context, ANOMASTONE_BOULDER, AHFeatures.BOULDER.get(), new BoulderFeatureConfig(
                 List.of(
@@ -130,6 +131,19 @@ public class AHConfiguredFeatures {
                 ),
                 64)
         );
+    }
+    private static void registerAnomalousShortGrassPatch(BootstapContext<ConfiguredFeature<?, ?>> context) {
+        FeatureUtils.register(context, PATCH_ANOMALOUS_GRASS, Feature.RANDOM_PATCH, grassPatch(
+                new WeightedStateProvider(
+                        SimpleWeightedRandomList.<BlockState>builder()
+                                .add(AHBlocks.ANOMALOUS_SHORT_GRASS.get().defaultBlockState(), 4)
+                                .add(AHBlocks.SICKENED_SHRUB.get().defaultBlockState(), 1)
+                ), 96
+        ));
+    }
+
+    private static RandomPatchConfiguration grassPatch(BlockStateProvider stateProvider, int tries) {
+        return FeatureUtils.simpleRandomPatchConfiguration(tries, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(stateProvider)));
     }
 
 }

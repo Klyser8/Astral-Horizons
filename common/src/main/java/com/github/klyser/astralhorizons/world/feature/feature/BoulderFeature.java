@@ -54,13 +54,17 @@ public class BoulderFeature extends Feature<BoulderFeatureConfig> {
                 level.getMaxBuildHeight(),
                 chunkPos.getMaxBlockZ() + 16
         );
-        StructurePlaceSettings placeSettings = new StructurePlaceSettings().setBoundingBox(boundingBox).setRandom(random);
+        StructurePlaceSettings placeSettings = new StructurePlaceSettings()
+                .setBoundingBox(boundingBox)
+                .setRandom(random);
         Vec3i size = template.getSize();
-        BlockPos centerPos = origin.offset(-size.getX() / 2, 0, -size.getZ() / 2);
-        BlockPos offsetPos = template.getZeroPositionWithTransform(centerPos.atY(origin.getY()), mirror, rotation);
+        int relativeCenterX = size.getX() / 2;
+        int relativeCenterZ = size.getZ() / 2;
+        BlockPos centerPos = origin.offset(relativeCenterX, 0, relativeCenterZ);
+        placeSettings.setRotationPivot(new BlockPos(-relativeCenterX, 0, -relativeCenterZ)).setRotation(rotation);
 
-        template.placeInWorld(level, offsetPos, offsetPos, placeSettings, random, Block.UPDATE_ALL);
-        replaceBlocks(random, offsetPos, template, placeSettings, weightedStateProvider).forEach((pos, state) -> {
+        template.placeInWorld(level, centerPos, centerPos, placeSettings, random, Block.UPDATE_ALL);
+        replaceBlocks(level, random, centerPos, template, placeSettings, weightedStateProvider).forEach((pos, state) -> {
             if (!state.is(AHBlocks.ANOMASTONE.get())) {
                 level.setBlock(pos, state, Block.UPDATE_ALL);
             }
@@ -68,13 +72,22 @@ public class BoulderFeature extends Feature<BoulderFeatureConfig> {
         return true;
     }
 
-    private Map<BlockPos, BlockState> replaceBlocks(RandomSource random, BlockPos origin, StructureTemplate template, StructurePlaceSettings placeSettings, WeightedStateProvider weightedStateProvider) {
+    private Map<BlockPos, BlockState> replaceBlocks(WorldGenLevel level, RandomSource random, BlockPos origin, StructureTemplate template, StructurePlaceSettings placeSettings, WeightedStateProvider weightedStateProvider) {
         List<StructureTemplate.StructureBlockInfo> structureBlockInfos = template.filterBlocks(origin, placeSettings, AHBlocks.ANOMASTONE.get());
         Map<BlockPos, BlockState> states = new HashMap<>();
         for (StructureTemplate.StructureBlockInfo structureBlockInfo : structureBlockInfos) {
+            connectToGround(level, structureBlockInfo.pos(), random);
             states.put(structureBlockInfo.pos(), weightedStateProvider.getState(random, structureBlockInfo.pos()));
         }
         return states;
+    }
+
+    private void connectToGround(WorldGenLevel level, BlockPos pos, RandomSource random) {
+        BlockPos below = pos.below();
+        if (!level.getBlockState(below).canOcclude() && pos.getY() > -63) {
+            level.setBlock(below, random.nextFloat() < 0.75 ? AHBlocks.ANOMASTONE.get().defaultBlockState() : AHBlocks.COBBLED_ANOMASTONE.get().defaultBlockState(), Block.UPDATE_ALL);
+            connectToGround(level, below, random);
+        }
     }
 
 }

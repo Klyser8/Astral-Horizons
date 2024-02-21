@@ -164,4 +164,8 @@ public class AHItems {
             "sickened_shrub", () -> new BlockItem(AHBlocks.SICKENED_SHRUB.get(), new Item.Properties()));
     public static final Supplier<Item> ANOMALOUS_SEAGRASS = CommonPlatformHelper.registerItem(
             "anomalous_seagrass", () -> new BlockItem(AHBlocks.ANOMALOUS_SEAGRASS.get(), new Item.Properties()));
+    public static final Supplier<Item> SCURANE_SAPLING = CommonPlatformHelper.registerItem(
+            "scurane_sapling", () -> new BlockItem(AHBlocks.SCURANE_SAPLING.get(), new Item.Properties()));
+    public static final Supplier<Item> SCURANE_LIGHTS = CommonPlatformHelper.registerItem(
+            "scurane_lights", () -> new BlockItem(AHBlocks.SCURANE_LIGHTS.get(), new Item.Properties()));
 }

@@ -3,6 +3,7 @@ package com.github.klyser.astralhorizons.registry;
 import com.github.klyser.astralhorizons.block.*;
 import com.github.klyser.astralhorizons.block.vegetation.*;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.PushReaction;
 
@@ -14,11 +15,6 @@ public class AHBlocks {
 
     public static void init() {}
 
-    public static final Supplier<Block> TEST_TINTED_BLOCK = registerBlock("test_tinted_block", () ->
-            new Block(BlockBehaviour.Properties
-                    .ofFullCopy(Blocks.STONE)
-                    .strength(4.0f, 6.0f)
-                    .sound(AHSoundType.ANOMASTONE)));
     public static final Supplier<Block> ANOMADIRT = registerBlock("anomadirt", () ->
             new AnomalousBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.DIRT)
@@ -271,11 +267,12 @@ public class AHBlocks {
                     .strength(3.0f)
                     .sound(AHSoundType.SCURANE_WOOD))); //TODO implement
     public static final Supplier<Block> SCURANE_LEAVES = registerBlock("scurane_leaves", () ->
-            new LeavesBlock(BlockBehaviour.Properties
+            new ScuraneLeaves(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_LEAVES)
                     .strength(0.3f)
                     .randomTicks()
                     .sound(AHSoundType.SCURANE_WOOD))); //TODO implement
+
     public static final Supplier<Block> SCURANE_PLANKS = registerBlock("scurane_planks", () ->
             new AnomalousBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_PLANKS)
@@ -371,6 +368,14 @@ public class AHBlocks {
             new AnomalousTallSeagrass(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.TALL_SEAGRASS)
                     .strength(0.4f), Blocks.TALL_SEAGRASS));
+    public static final Supplier<Block> SCURANE_SAPLING = registerBlock("scurane_sapling", () ->
+            new AnomalousSaplingBlock(AHTreeGrower.SCURANE_TREE, BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.OAK_SAPLING)
+                    .strength(0.3f), AHTags.ANOMALOUS_DIRT));
+    public static final Supplier<Block> SCURANE_LIGHTS = registerBlock("scurane_lights", () ->
+            new ScuraneLights(BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.CRIMSON_ROOTS)
+                    .strength(0.3f), AHBlocks.SCURANE_LEAVES.get()));
 
     public static Block[] getAHTintedBlocks() {
         return new Block[] {
@@ -378,6 +383,7 @@ public class AHBlocks {
                 AHBlocks.ANOMALOUS_SHORT_GRASS.get(),
                 AHBlocks.SICKENED_SHRUB.get(),
                 AHBlocks.SCURANE_LEAVES.get(),
+                AHBlocks.SCURANE_LIGHTS.get()
         };
     }
 

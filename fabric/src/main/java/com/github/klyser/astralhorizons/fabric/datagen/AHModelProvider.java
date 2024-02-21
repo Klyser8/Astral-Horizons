@@ -50,6 +50,7 @@ public class AHModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerators itemModelGenerator) {
         generateFlatItemFromCrossBlock(itemModelGenerator, AHItems.SICKENED_SHRUB.get(), AHBlocks.SICKENED_SHRUB.get());
         generateFlatItemFromCrossBlock(itemModelGenerator, AHItems.ANOMALOUS_SHORT_GRASS.get(), AHBlocks.ANOMALOUS_SHORT_GRASS.get()); //FIXME why won't this generate?
+        generateFlatItemFromCrossBlock(itemModelGenerator, AHItems.SCURANE_SAPLING.get(), AHBlocks.SCURANE_SAPLING.get());
         itemModelGenerator.generateFlatItem(AHItems.STARFLARE_BLOSSOM.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(AHItems.ANOMALOUS_SEAGRASS.get(), ModelTemplates.FLAT_ITEM);
 //        itemModelGenerator.(AHItems.ANOMAGRASS_BLOCK.get(), ModelTemplates.FLAT_ITEM); //TODO figure out how to create blockitem item models.
@@ -81,6 +82,7 @@ public class AHModelProvider extends FabricModelProvider {
     private void createCrossBlocks(BlockModelGenerators blockModelGenerators) {
         blockModelGenerators.createCrossBlock(AHBlocks.SICKENED_SHRUB.get(), BlockModelGenerators.TintState.TINTED);
         blockModelGenerators.createCrossBlock(AHBlocks.ANOMALOUS_SHORT_GRASS.get(), BlockModelGenerators.TintState.TINTED);
+        blockModelGenerators.createCrossBlock(AHBlocks.SCURANE_SAPLING.get(), BlockModelGenerators.TintState.NOT_TINTED);
     }
 
     private void createSandstone(BlockModelGenerators blockModelGenerators) {

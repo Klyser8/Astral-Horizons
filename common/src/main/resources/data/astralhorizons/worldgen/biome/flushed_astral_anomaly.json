@@ -36,7 +36,10 @@
     ],
     [],
     [],
-    [],
+    [
+      "astralhorizons:anomalous_grass_patch",
+      "astralhorizons:scurane_tree"
+    ],
     []
   ]
 }

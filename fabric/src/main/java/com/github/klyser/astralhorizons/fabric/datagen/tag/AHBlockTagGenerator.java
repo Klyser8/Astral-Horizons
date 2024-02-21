@@ -115,6 +115,7 @@ public class AHBlockTagGenerator extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(ANOMALOUS_VEGETATION)
                 .add(AHBlocks.ANOMALOUS_SHORT_GRASS.get())
                 .add(AHBlocks.SICKENED_SHRUB.get())
-                .add(AHBlocks.SCURANE_LEAVES.get());
+                .add(AHBlocks.SCURANE_LEAVES.get())
+                .add(AHBlocks.SCURANE_LIGHTS.get());
     }
 }

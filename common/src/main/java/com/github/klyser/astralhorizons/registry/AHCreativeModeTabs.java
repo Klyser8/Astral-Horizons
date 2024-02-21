@@ -101,6 +101,7 @@ public class AHCreativeModeTabs {
                         entries.accept(AHItems.ANOMALOUS_SHORT_GRASS.get());
                         entries.accept(AHItems.SICKENED_SHRUB.get());
                         entries.accept(AHItems.ANOMALOUS_SEAGRASS.get());
+                        entries.accept(AHItems.SCURANE_SAPLING.get());
                     }).build()
     );
 

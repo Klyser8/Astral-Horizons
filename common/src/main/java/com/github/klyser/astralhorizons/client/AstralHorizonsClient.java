@@ -23,6 +23,8 @@ public class AstralHorizonsClient {
         ClientPlatformHelper.setBlockRenderType(AHBlocks.ANOMALOUS_TALL_SEAGRASS.get(), RenderType.cutout());
         ClientPlatformHelper.setBlockRenderType(AHBlocks.TWISTED_TENDRIL_STEM.get(), RenderType.cutout());
         ClientPlatformHelper.setBlockRenderType(AHBlocks.TWISTED_TENDRIL_HEAD.get(), RenderType.cutout());
+        ClientPlatformHelper.setBlockRenderType(AHBlocks.SCURANE_SAPLING.get(), RenderType.cutout());
+        ClientPlatformHelper.setBlockRenderType(AHBlocks.SCURANE_LIGHTS.get(), RenderType.translucent());
         ClientPlatformHelper.setBlockRenderType(AHBlocks.SCURANE_TRAPDOOR.get(), RenderType.cutout());
     }
 
@@ -48,8 +50,9 @@ public class AstralHorizonsClient {
                             blockState.is(AHBlocks.ANOMALOUS_SHORT_GRASS.get())) {
                         return 6846678;
                     }
-                    if (blockState.is(AHBlocks.SCURANE_LEAVES.get())) {
-                        return 6846678;
+                    if (blockState.is(AHBlocks.SCURANE_LEAVES.get()) ||
+                            blockState.is(AHBlocks.SCURANE_LIGHTS.get())) { //Scurane lights shouldnt blink but they do.
+                        return 0xFFA26D;
                     }
                 } else {
                     return BiomeColors.getAverageFoliageColor(blockAndTintGetter, blockPos);

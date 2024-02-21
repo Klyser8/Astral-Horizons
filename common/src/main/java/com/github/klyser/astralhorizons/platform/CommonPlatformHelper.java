@@ -2,6 +2,9 @@ package com.github.klyser.astralhorizons.platform;
 
 import com.github.klyser.astralhorizons.network.AHPacket;
 import dev.architectury.injectables.annotations.ExpectPlatform;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;

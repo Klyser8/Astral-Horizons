@@ -16,6 +16,7 @@ public class AstralHorizons
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	public static void init() {
+		AHTreeGrower.init();
 		AHBlocks.init();
 		AHItems.init();
 		AHCreativeModeTabs.init();

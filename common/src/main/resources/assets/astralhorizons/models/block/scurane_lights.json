@@ -1,0 +1,7 @@
+{
+  "parent": "astralhorizons:block/tinted_cross_with_overlay",
+  "textures": {
+    "cross": "astralhorizons:block/scurane_lights",
+    "overlay": "astralhorizons:block/scurane_lights_overlay"
+  }
+}

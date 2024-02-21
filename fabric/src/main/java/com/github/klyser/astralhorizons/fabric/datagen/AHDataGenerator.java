@@ -24,7 +24,7 @@ public class AHDataGenerator implements DataGeneratorEntrypoint {
 
     @Override
     public void buildRegistry(RegistrySetBuilder registryBuilder) {
-        registryBuilder.add(Registries.CONFIGURED_FEATURE, AHConfiguredFeatures::bootstrap);
-        registryBuilder.add(Registries.PLACED_FEATURE, AHPlacedFeatures::bootstrap);
+        registryBuilder.add(Registries.CONFIGURED_FEATURE, AHConfiguredFeaturesProvider::bootstrap);
+        registryBuilder.add(Registries.PLACED_FEATURE, AHPlacedFeaturesProvider::bootstrap);
     }
 }
