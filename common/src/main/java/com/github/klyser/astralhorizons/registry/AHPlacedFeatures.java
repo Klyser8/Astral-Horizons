@@ -8,6 +8,7 @@ import static com.github.klyser.astralhorizons.AstralHorizons.id;
 
 public class AHPlacedFeatures {
 
+    public static final ResourceKey<PlacedFeature> TWISTED_TENDRIL = ResourceKey.create(Registries.PLACED_FEATURE, id("twisted_tendril"));
     public static final ResourceKey<PlacedFeature> SCURANE_TREE = ResourceKey.create(Registries.PLACED_FEATURE, id("scurane_tree"));
     public static final ResourceKey<PlacedFeature> ANOMASTONE_BOULDER = ResourceKey.create(Registries.PLACED_FEATURE, id("anomastone_boulder"));
     public static final ResourceKey<PlacedFeature> DISK_ANOMASAND = ResourceKey.create(Registries.PLACED_FEATURE, id("disk_anomasand"));

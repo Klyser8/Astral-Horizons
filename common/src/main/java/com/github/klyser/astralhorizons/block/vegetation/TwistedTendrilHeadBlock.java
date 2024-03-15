@@ -263,7 +263,7 @@ public class TwistedTendrilHeadBlock extends GrowingPlantHeadBlock implements Si
         maxHeight += pos.getX() % 3;
         maxHeight += pos.getZ() % 3;
         maxHeight += pos.getY() % 2;
-        return (maxHeight % 7) + 2;
+        return (maxHeight % 4) + 3;
     }
 
     private int calculateCurrentHeightOutOfWater(Level level, BlockPos originPos) {

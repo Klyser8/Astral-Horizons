@@ -36,7 +36,11 @@
     ],
     [],
     [],
-    [],
-    []
+    [
+      "astralhorizons:twisted_tendril"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
   ]
 }

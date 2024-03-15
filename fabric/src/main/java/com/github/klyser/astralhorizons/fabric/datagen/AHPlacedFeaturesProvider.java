@@ -1,5 +1,6 @@
 package com.github.klyser.astralhorizons.fabric.datagen;
 
+import com.github.klyser.astralhorizons.registry.AHBlocks;
 import com.github.klyser.astralhorizons.registry.AHConfiguredFeatures;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
@@ -23,6 +24,7 @@ import static com.github.klyser.astralhorizons.registry.AHPlacedFeatures.*;
 public class AHPlacedFeaturesProvider {
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> features = context.lookup(Registries.CONFIGURED_FEATURE);
+        registerTwistedTendril(context, features);
         registerSingleAnomalousGrass(context, features);
         registerAnomalousGrassPatch(context, features);
         registerScuraneTree(context, features);
@@ -32,6 +34,20 @@ public class AHPlacedFeaturesProvider {
         registerAuraniteOre(context, features);
         registerChloriteOre(context, features);
         registerSiderockOre(context, features);
+    }
+
+    private static void registerTwistedTendril(BootstapContext<PlacedFeature> context, HolderGetter<ConfiguredFeature<?, ?>> features) {
+        Holder.Reference<ConfiguredFeature<?, ?>> feature = features.getOrThrow(AHConfiguredFeatures.TWISTED_TENDRIL);
+        PlacementUtils.register(context, TWISTED_TENDRIL, feature, List.of(
+                NoiseBasedCountPlacement.of(
+                        360,
+                        1800,
+                        -0.45
+                ),
+                InSquarePlacement.spread(),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.OCEAN_FLOOR_WG),
+                BiomeFilter.biome()
+        ));
     }
 
     private static void registerSingleAnomalousGrass(BootstapContext<PlacedFeature> context, HolderGetter<ConfiguredFeature<?, ?>> features) {
@@ -55,9 +71,14 @@ public class AHPlacedFeaturesProvider {
     private static void registerScuraneTree(BootstapContext<PlacedFeature> context, HolderGetter<ConfiguredFeature<?, ?>> features) {
         Holder.Reference<ConfiguredFeature<?, ?>> feature = features.getOrThrow(AHConfiguredFeatures.SCURANE_TREE);
         PlacementUtils.register(context, SCURANE_TREE, feature, List.of(
+                RarityFilter.onAverageOnceEvery(5),
+                InSquarePlacement.spread(),
+                SurfaceWaterDepthFilter.forMaxDepth(0),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.OCEAN_FLOOR),
+                BiomeFilter.biome(),
                 BlockPredicateFilter.forPredicate(
                         BlockPredicate.wouldSurvive(
-                                Blocks.ACACIA_SAPLING.defaultBlockState().setValue(BlockStateProperties.STAGE, 0),
+                                AHBlocks.SCURANE_SAPLING.get().defaultBlockState().setValue(BlockStateProperties.STAGE, 0),
                                 Vec3i.ZERO
                         )
                 )

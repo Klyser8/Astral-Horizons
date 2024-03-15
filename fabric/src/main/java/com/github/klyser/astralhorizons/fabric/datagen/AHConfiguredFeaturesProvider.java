@@ -14,10 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.DiskConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
@@ -31,6 +28,7 @@ import static com.github.klyser.astralhorizons.registry.AHConfiguredFeatures.*;
 public class AHConfiguredFeaturesProvider {
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+        registerTwistedTendril(context);
         registerSingleAnomalousGrass(context);
         registerScuraneTree(context);
         registerAnomastoneBoulder(context);
@@ -40,6 +38,10 @@ public class AHConfiguredFeaturesProvider {
         registerChloriteOre(context);
         registerSiderockOre(context);
         registerAnomalousShortGrassPatch(context);
+    }
+
+    private static void registerTwistedTendril(BootstapContext<ConfiguredFeature<?, ?>> context) {
+        FeatureUtils.register(context, TWISTED_TENDRIL, AHFeatures.TWISTED_TENDRIL.get(), new NoneFeatureConfiguration());
     }
 
     private static void registerSingleAnomalousGrass(BootstapContext<ConfiguredFeature<?, ?>> context) {
