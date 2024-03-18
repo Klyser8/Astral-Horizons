@@ -63,7 +63,18 @@ public class BoulderFeature extends Feature<BoulderFeatureConfig> {
         BlockPos centerPos = origin.offset(relativeCenterX, 0, relativeCenterZ);
         placeSettings.setRotationPivot(new BlockPos(-relativeCenterX, 0, -relativeCenterZ)).setRotation(rotation);
 
-        template.placeInWorld(level, centerPos, centerPos, placeSettings, random, Block.UPDATE_ALL);
+        // Check distance to ground
+        boolean isTooFarFromGround = true;
+        for (int i = 0; i < 4; i++) {
+            if (level.getBlockState(centerPos.below(i)).canOcclude()) {
+                isTooFarFromGround = false;
+                break;
+            }
+        }
+        if (isTooFarFromGround) {
+            return false;
+        }
+        template.placeInWorld(level, centerPos, centerPos, placeSettings, random, Block.UPDATE_ALL); // Places boulder in the world
         replaceBlocks(level, random, centerPos, template, placeSettings, weightedStateProvider).forEach((pos, state) -> {
             if (!state.is(AHBlocks.ANOMASTONE.get())) {
                 level.setBlock(pos, state, Block.UPDATE_ALL);

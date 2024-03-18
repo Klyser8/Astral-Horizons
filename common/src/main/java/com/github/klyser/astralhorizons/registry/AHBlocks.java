@@ -247,31 +247,31 @@ public class AHBlocks {
                     .ofFullCopy(Blocks.SNOW_BLOCK)
                     .strength(0.33f), Blocks.SNOW_BLOCK));
     public static final Supplier<Block> SCURANE_LOG = registerBlock("scurane_log", () ->
-            new RotatedPillarBlock(BlockBehaviour.Properties
+            new AnomalousRotatedPillarBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_LOG)
                     .strength(3.0f)
-                    .sound(AHSoundType.SCURANE_WOOD))); //TODO implement
+                    .sound(AHSoundType.SCURANE_WOOD), Blocks.OAK_LOG)); //TODO implement
     public static final Supplier<Block> SCURANE_WOOD = registerBlock("scurane_wood", () ->
-            new RotatedPillarBlock(BlockBehaviour.Properties
+            new AnomalousRotatedPillarBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_WOOD)
                     .strength(3.0f)
-                    .sound(AHSoundType.SCURANE_WOOD))); //TODO implement
+                    .sound(AHSoundType.SCURANE_WOOD), Blocks.OAK_WOOD)); //TODO implement
     public static final Supplier<Block> STRIPPED_SCURANE_LOG = registerBlock("stripped_scurane_log", () ->
-            new RotatedPillarBlock(BlockBehaviour.Properties
+            new AnomalousRotatedPillarBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STRIPPED_CHERRY_LOG)
                     .strength(3.0f)
-                    .sound(AHSoundType.SCURANE_WOOD))); //TODO implement
+                    .sound(AHSoundType.SCURANE_WOOD), Blocks.STRIPPED_OAK_LOG)); //TODO implement
     public static final Supplier<Block> STRIPPED_SCURANE_WOOD = registerBlock("stripped_scurane_wood", () ->
-            new RotatedPillarBlock(BlockBehaviour.Properties
+            new AnomalousRotatedPillarBlock(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.STRIPPED_CHERRY_WOOD)
                     .strength(3.0f)
-                    .sound(AHSoundType.SCURANE_WOOD))); //TODO implement
+                    .sound(AHSoundType.SCURANE_WOOD), Blocks.STRIPPED_OAK_WOOD)); //TODO implement
     public static final Supplier<Block> SCURANE_LEAVES = registerBlock("scurane_leaves", () ->
             new ScuraneLeaves(BlockBehaviour.Properties
                     .ofFullCopy(Blocks.CHERRY_LEAVES)
                     .strength(0.3f)
                     .randomTicks()
-                    .sound(AHSoundType.SCURANE_WOOD))); //TODO implement
+                    .sound(AHSoundType.SCURANE_WOOD), Blocks.OAK_LEAVES)); //TODO implement
 
     public static final Supplier<Block> SCURANE_PLANKS = registerBlock("scurane_planks", () ->
             new AnomalousBlock(BlockBehaviour.Properties

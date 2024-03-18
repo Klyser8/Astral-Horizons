@@ -1,19 +1,26 @@
 package com.github.klyser.astralhorizons.block.vegetation;
 
+import com.github.klyser.astralhorizons.block.CloakedBlock;
 import com.github.klyser.astralhorizons.registry.AHBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.Tuple;
 import net.minecraft.world.item.BoneMealItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class ScuraneLeaves extends LeavesBlock implements BonemealableBlock {
-    public ScuraneLeaves(Properties properties) {
+import java.util.Map;
+
+public class ScuraneLeaves extends LeavesBlock implements BonemealableBlock, CloakedBlock {
+    private Block cloakBlock;
+    public ScuraneLeaves(Properties properties, Block cloakBlock) {
         super(properties);
+        this.cloakBlock = cloakBlock;
     }
 
     @Override
@@ -36,4 +43,13 @@ public class ScuraneLeaves extends LeavesBlock implements BonemealableBlock {
     }
 
 
+    @Override
+    public Tuple<Block, Block> getBlockTuple() {
+        return new Tuple<>(this, cloakBlock);
+    }
+
+    @Override
+    public Map<BlockState, BlockState> getBlockStateCloaks() {
+        return Map.of(defaultBlockState(), cloakBlock.defaultBlockState());
+    }
 }
