@@ -1,16 +1,19 @@
 package com.github.klyser.astralhorizons;
 
 import com.github.klyser.astralhorizons.data.AstralHorizonsServerData;
+import com.github.klyser.astralhorizons.network.AHPacketData;
 import com.github.klyser.astralhorizons.network.EnderDragonStatusPacket;
 import com.github.klyser.astralhorizons.platform.CommonPlatformHelper;
 import com.github.klyser.astralhorizons.registry.AHBlocks;
 import com.github.klyser.astralhorizons.registry.AHTags;
 import com.github.klyser.astralhorizons.util.AdvancementUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class MixinCallbacks {

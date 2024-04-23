@@ -3,7 +3,7 @@
   "biomes": "#minecraft:is_overworld",
   "step": "surface_structures",
   "spawn_overrides": {},
-  "terrain_adaptation": "beard_box",
+  "terrain_adaptation": "bury",
   "start_pool": "astralhorizons:inferno_monolith",
   "size": 1,
   "start_height": {

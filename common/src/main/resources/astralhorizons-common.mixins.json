@@ -8,9 +8,12 @@
     "AwardAdvancementPostDragonDeathMixin",
     "ChunkGeneratorStructureStateMixin",
     "InjectBoneMealUsageInAnomalousBiomes",
-    "InvokeRegisterWoodTypeMixin"
+    "InvokeRegisterWoodTypeMixin",
+    "TweakAnomalousSkyColorMixin"
   ],
   "client": [
+    "TweakAnomalousFogColorMixin",
+    "TweakAnomalousWaterColorMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -12,11 +12,33 @@ public class AHItems {
 
     public static void init() {}
 
-    public static final Supplier<Item> COSMIC_CRYSTAL = CommonPlatformHelper.registerItem(
-            "cosmic_crystal", () -> new Item(new Item.Properties()
+    public static final Supplier<Item> FADED_COSMIC_CRYSTAL = CommonPlatformHelper.registerItem(
+            "faded_cosmic_crystal", () -> new Item(new Item.Properties()
                     .rarity(Rarity.UNCOMMON)));
     public static final Supplier<Item> STARFLARE_BLOSSOM = CommonPlatformHelper.registerItem(
             "starflare_blossom", () -> new ItemNameBlockItem(AHBlocks.TWISTED_TENDRIL_HEAD.get(), new Item.Properties()));
+    public static final Supplier<Item> CELESTIAL_HARMONY_CONCOCTION = CommonPlatformHelper.registerItem(
+            "celestial_harmony_concoction", () -> new Item(new Item.Properties()
+                    .rarity(Rarity.UNCOMMON)));
+    public static final Supplier<Item> POTION_OF_ETHEREAL_IMMUNITY = CommonPlatformHelper.registerItem(
+            "potion_of_ethereal_immunity", () -> new Item(new Item.Properties()
+                    .rarity(Rarity.UNCOMMON)));
+    public static final Supplier<Item> STELLULAR_SCAB = CommonPlatformHelper.registerItem(
+            "stellular_scab", () -> new Item(new Item.Properties()
+                    .rarity(Rarity.UNCOMMON)));
+    public static final Supplier<Item> TERRA_RELIC = CommonPlatformHelper.registerItem(
+            "terra_relic", () -> new Item(new Item.Properties()
+                    .rarity(Rarity.RARE)));
+    public static final Supplier<Item> TERRA_SHERD = CommonPlatformHelper.registerItem(
+            "terra_sherd", () -> new Item(new Item.Properties()));
+    public static final Supplier<Item> INFERNO_RELIC = CommonPlatformHelper.registerItem(
+            "inferno_relic", () -> new Item(new Item.Properties()
+                    .rarity(Rarity.RARE)));
+    public static final Supplier<Item> INFERNO_SHARD = CommonPlatformHelper.registerItem(
+            "inferno_shard", () -> new Item(new Item.Properties()));
+    public static final Supplier<Item> ULTIMA_RELIC = CommonPlatformHelper.registerItem( //TODO implement all these items
+            "ultima_relic", () -> new Item(new Item.Properties()
+                    .rarity(Rarity.RARE)));
 
     // ---- BLOCKS ----
 

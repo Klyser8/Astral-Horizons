@@ -4,6 +4,7 @@ import com.github.klyser.astralhorizons.AstralHorizons;
 import com.github.klyser.astralhorizons.network.AHPacket;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
@@ -12,6 +13,8 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -20,6 +23,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType;
 
+import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class CommonPlatformHelperImpl {
@@ -61,6 +66,12 @@ public class CommonPlatformHelperImpl {
     public static <T extends FeatureConfiguration> Supplier<Feature<T>> registerFeature(String name, Supplier<Feature<T>> feature) {
         Feature<T> registry = Registry.register(BuiltInRegistries.FEATURE, AstralHorizons.id(name), feature.get());
         return () -> registry;
+    }
+
+    public static void registerVillagerTrade(VillagerProfession profession, int level, Consumer<List<VillagerTrades.ItemListing>> factories) {
+        TradeOfferHelper.registerVillagerOffers(
+                profession, level, factories
+        );
     }
 
 }

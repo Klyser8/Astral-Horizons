@@ -4,6 +4,7 @@ import com.github.klyser.astralhorizons.fabric.datagen.lang.AHEnglishLanguagePro
 import com.github.klyser.astralhorizons.fabric.datagen.sound.AHSoundProvider;
 import com.github.klyser.astralhorizons.fabric.datagen.tag.AHBiomeTagGenerator;
 import com.github.klyser.astralhorizons.fabric.datagen.tag.AHBlockTagGenerator;
+import com.github.klyser.astralhorizons.fabric.datagen.tag.AHStructureTagGenerator;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
@@ -18,6 +19,7 @@ public class AHDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(AHModelProvider::new);
         pack.addProvider(AHSoundProvider::new);
         pack.addProvider(AHBiomeTagGenerator::new);
+        pack.addProvider(AHStructureTagGenerator::new);
         pack.addProvider(AHEnglishLanguageProvider::new);
         pack.addProvider(AHDynamicDataProvider::new);
     }

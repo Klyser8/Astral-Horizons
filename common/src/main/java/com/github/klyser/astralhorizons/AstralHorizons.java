@@ -1,9 +1,13 @@
 package com.github.klyser.astralhorizons;
 
+import com.github.klyser.astralhorizons.platform.CommonPlatformHelper;
 import com.github.klyser.astralhorizons.registry.*;
 import com.github.klyser.astralhorizons.world.region.AstralAnomalyRegion;
 import com.github.klyser.astralhorizons.world.surfacerule.AHSurfaceRules;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import terrablender.api.Regions;

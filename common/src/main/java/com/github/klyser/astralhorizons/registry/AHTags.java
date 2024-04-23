@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.structure.Structure;
 
 public class AHTags {
 
@@ -23,4 +24,6 @@ public class AHTags {
     //ASTRAL HORIZONS - BIOMES
     public static final TagKey<Biome> IS_ANOMALOUS = TagKey.create(Registries.BIOME, AstralHorizons.id("is_anomalous"));
 
+    //ASTRAL HORIZONS - STRUCTURE TAGS
+    public static final TagKey<Structure> ON_ASTRAL_GATEWAY_MAPS = TagKey.create(Registries.STRUCTURE, AstralHorizons.id("on_astral_gateway_maps"));
 }

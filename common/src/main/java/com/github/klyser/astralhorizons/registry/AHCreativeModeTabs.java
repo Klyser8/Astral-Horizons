@@ -17,9 +17,9 @@ public class AHCreativeModeTabs {
     public static final Supplier<CreativeModeTab> ITEMS = registerCreativeTab("items",
             () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
                     .title(Component.translatable("itemGroup." + AstralHorizons.MOD_ID + ".items"))
-                    .icon(() -> AHItems.COSMIC_CRYSTAL.get().getDefaultInstance())
+                    .icon(() -> AHItems.FADED_COSMIC_CRYSTAL.get().getDefaultInstance())
                     .displayItems((features, entries) -> {
-                        entries.accept(AHItems.COSMIC_CRYSTAL.get());
+                        entries.accept(AHItems.FADED_COSMIC_CRYSTAL.get());
                     }).build()
     );
 
