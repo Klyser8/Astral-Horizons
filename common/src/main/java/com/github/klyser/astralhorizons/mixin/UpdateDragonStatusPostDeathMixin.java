@@ -11,9 +11,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(EnderDragon.class)
-public abstract class AwardAdvancementPostDragonDeathMixin extends Mob {
+public abstract class UpdateDragonStatusPostDeathMixin extends Mob {
 
-    public AwardAdvancementPostDragonDeathMixin(EntityType<? extends EnderDragon> entityType, Level level) {
+    public UpdateDragonStatusPostDeathMixin(EntityType<? extends EnderDragon> entityType, Level level) {
         super(entityType, level);
     }
 

@@ -83,6 +83,7 @@ public class AHEnglishLanguageProvider extends AHLanguageProvider {
         translationBuilder.add(AHItems.SCURANE_BUTTON.get(), "Scurane Button");
         translationBuilder.add(AHItems.ANOMALOUS_SHORT_GRASS.get(), "Anomalous Short Grass");
         translationBuilder.add(AHItems.SICKENED_SHRUB.get(), "Sickened Shrub");
+
     }
 
     @Override

@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Debug(export = true)
 @Mixin(BoneMealItem.class)
-public class InjectBoneMealUsageInAnomalousBiomes {
+public class InjectBoneMealUsageInAnomalousBiomesMixin {
 
     @ModifyExpressionValue(method = "growWaterPlant", at = @At(value = "FIELD",
             target = "Lnet/minecraft/world/level/block/Blocks;SEAGRASS:Lnet/minecraft/world/level/block/Block;"))

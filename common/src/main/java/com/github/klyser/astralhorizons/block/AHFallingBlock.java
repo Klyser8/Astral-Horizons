@@ -1,6 +1,7 @@
 package com.github.klyser.astralhorizons.block;
 
 import com.mojang.serialization.MapCodec;
+import de.dafuqs.revelationary.api.revelations.RevelationAware;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -17,6 +18,7 @@ public class AHFallingBlock extends FallingBlock implements CloakedBlock {
     public AHFallingBlock(Properties properties, Block cloakBlock) {
         super(properties);
         this.cloakBlock = cloakBlock;
+        RevelationAware.register(this);
     }
 
     @Override

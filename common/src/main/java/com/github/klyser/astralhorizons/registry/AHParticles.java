@@ -10,7 +10,7 @@ public class AHParticles {
 
     public static void init() {}
 
-//    public static final Supplier<SimpleParticleType> ORANGE_GLOW_PARTICLE = ClientPlatformHelper.registerParticleType(
+//    public static final Supplier<SimpleParticleType> ORANGE_GLOW_PARTICLE = ClientPlatformHelper.registerParticleType("orange_glow"
 //            () -> new OrangeGlowParticleType()); //TODO add the particle type.
 
 }
